@@ -1,0 +1,10 @@
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csprojResolveAssemblyReference.cache
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino_Shutter_Control.Form1.resources
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino_Shutter_Control.Properties.Resources.resources
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csproj.GenerateResource.Cache
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csproj.CoreCompileInputs.cache
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.exe.config
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.exe
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.pdb
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.exe
+C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.pdb
