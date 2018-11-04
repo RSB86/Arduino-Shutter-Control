@@ -69,7 +69,7 @@ namespace Arduino_Shutter_Control
         {
             commPort = listViewSerialPorts.SelectedItems[0].SubItems[0].Text;
             ArduinoControl.CommPort = commPort;
-            if (ArduinoControl.Connect() == 1)
+            if (ArduinoControl.Connect())
             {
                 textBox1.Text = "Connection Successful";
             }

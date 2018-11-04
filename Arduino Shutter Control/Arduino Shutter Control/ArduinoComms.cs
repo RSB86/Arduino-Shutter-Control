@@ -9,13 +9,13 @@ namespace Arduino_Shutter_Control
 {
     public class ArduinoComms
     {
-        public String CommPort { get; set; }
+        public string CommPort { get; set; }
 
-        static String readData;
+        static string readData;
 
         private SerialPort port = new SerialPort();
 
-        public int Connect()
+        public bool Connect()
         {
             port.PortName = CommPort;
             port.BaudRate = 57600;
@@ -30,25 +30,25 @@ namespace Arduino_Shutter_Control
             catch (Exception ex)
             {
                 port.Close();
-                return -1;
+                return false;
             }
             port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
             var timeNow = DateTime.UtcNow.Second;
-            while (((DateTime.UtcNow.Second - timeNow) < 2))
+            while ((DateTime.UtcNow.Second - timeNow) < 2)
             {
-                if(readData == "Connection Successful")
+                if (readData == "Connection Successful")
                 {
-                    return 1;
+                    return true;
                 }
             }
-            return -1;
+            return false;
 
         }
 
         private static void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
         {
-            SerialPort sp = (SerialPort)sender;
+            var sp = (SerialPort) sender;
             readData = sp.ReadExisting();
             switch (readData)
             {
