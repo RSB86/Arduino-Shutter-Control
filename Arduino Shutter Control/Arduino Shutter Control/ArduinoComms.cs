@@ -13,35 +13,41 @@ namespace Arduino_Shutter_Control
 
         static string readData;
 
+        public bool Connected { get; set; }
+
         private SerialPort port = new SerialPort();
 
         public bool Connect()
         {
-            port.PortName = CommPort;
-            port.BaudRate = 57600;
-            port.Parity = Parity.None;
-            port.StopBits = StopBits.One;
-
             try
             {
+                port.PortName = CommPort;
+                port.BaudRate = 57600;
+                port.Parity = Parity.None;
+                port.StopBits = StopBits.One;
+            
                 port.Open();
                 port.Write("Connect");
             }
             catch (Exception ex)
             {
                 port.Close();
+                Connected = true;
                 return false;
             }
             port.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
             var timeNow = DateTime.UtcNow.Second;
-            while ((DateTime.UtcNow.Second - timeNow) < 2)
+            while ((DateTime.UtcNow.Second - timeNow) < 10)
             {
                 if (readData == "Connection Successful")
                 {
+                    Connected = true;
+                    OnArduinoConnected(EventArgs.Empty);
                     return true;
                 }
             }
+            Connected = false;
             return false;
 
         }
@@ -67,5 +73,16 @@ namespace Arduino_Shutter_Control
         {
             port.Write("M1_Right");
         }
+
+        protected virtual void OnArduinoConnected (EventArgs e)
+        {
+            EventHandler handler = ArduinoConnected;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        public event EventHandler ArduinoConnected;
     }
 }

@@ -21,6 +21,8 @@ namespace Arduino_Shutter_Control
         {
             InitializeComponent();
 
+            ArduinoControl.ArduinoConnected += ArduinoControl_ArduinoConnected;
+
             textBox1.Text = "Please select a device from the list and press connect";
 
             //disable connect button when program starts
@@ -48,6 +50,10 @@ namespace Arduino_Shutter_Control
             }
         }
 
+        void ArduinoControl_ArduinoConnected (object sender, EventArgs e)
+        {
+            buttonConnect.Enabled = false;
+        }
 
         private void ListViewSerialPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -77,21 +83,6 @@ namespace Arduino_Shutter_Control
             {
                 textBox1.Text = "Failed to connect";
             }
-            //var port = new SerialPort(commPort, 57600, Parity.None, 8, StopBits.One);
-            //try
-            //{
-            //    port.Close();
-            //    port.Open();
-            //    port.Write("Connect");
-            //}
-            //catch (Exception ex)
-            //{
-            //    textBox1.Text = "Connection Failed";
-            //}
-            //finally
-            //{
-            //    port.Close();
-            //}
         }
 
         private void buttonM1Left_Click(object sender, EventArgs e)
@@ -102,6 +93,11 @@ namespace Arduino_Shutter_Control
         private void buttonM1Right_Click(object sender, EventArgs e)
         {
             ArduinoControl.M1Right();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

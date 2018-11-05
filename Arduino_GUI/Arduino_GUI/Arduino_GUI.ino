@@ -1,3 +1,8 @@
+bool waitingToSendData;
+unsigned long currentTime;
+bool pcConnected = 0;
+
+
 void setup() {
   // put your setup code here, to run once:
   pinMode(13,OUTPUT);
@@ -15,6 +20,8 @@ void loop() {
     {
       Serial.write("Connection Successful");
       serial_input = "";
+      Serial.flush();
+      digitalWrite(13,!digitalRead(13));
     }
     else if (serial_input == "M1_Left")
     {
@@ -26,13 +33,27 @@ void loop() {
     }
   }
 
-  if (digitalRead(12) == HIGH)
+  if (!waitingToSendData)
   {
-    Serial.write("M1_Left_Low");
+    currentTime = millis();
+    waitingToSendData = HIGH;
   }
-  else
+  if (pcConnected)
   {
-    Serial.write("M1_Left_High");
-  }
-  
+      if (waitingToSendData)
+      {
+        if ((millis() - currentTime) > 2000)
+        {
+            if (digitalRead(12) == HIGH)
+            {
+              Serial.write("M1_Left_Low");
+            }
+            else
+            {
+              Serial.write("M1_Left_High");
+            }
+            waitingToSendData = LOW;
+         }
+      }
+   }
 }
