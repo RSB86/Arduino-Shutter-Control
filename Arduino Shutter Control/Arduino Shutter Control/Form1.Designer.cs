@@ -56,8 +56,6 @@
             this.textBox24 = new System.Windows.Forms.TextBox();
             this.panelCh1 = new System.Windows.Forms.Panel();
             this.panelCh1Fdbk = new System.Windows.Forms.Panel();
-            this.M1FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M1FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.panelCh1Cmd = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -65,8 +63,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panelCh2 = new System.Windows.Forms.Panel();
             this.panelCh2Fdbk = new System.Windows.Forms.Panel();
-            this.M2FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M2FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panelCh2Cmd = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -76,8 +72,6 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.panelCh3 = new System.Windows.Forms.Panel();
             this.panelCh3Fdbk = new System.Windows.Forms.Panel();
-            this.M3FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M3FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.panelCh3Cmd = new System.Windows.Forms.Panel();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -87,8 +81,6 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.panelCh4 = new System.Windows.Forms.Panel();
             this.panelCh4Fdbk = new System.Windows.Forms.Panel();
-            this.M4FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M4FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.panelCh4Cmd = new System.Windows.Forms.Panel();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -98,8 +90,6 @@
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.panelCh5 = new System.Windows.Forms.Panel();
             this.panelCh5Fdbk = new System.Windows.Forms.Panel();
-            this.M5FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M5FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.panelCh5Cmd = new System.Windows.Forms.Panel();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -471,35 +461,11 @@
             // panelCh1Fdbk
             // 
             this.panelCh1Fdbk.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelCh1Fdbk.Controls.Add(this.M1FdbkOUT);
-            this.panelCh1Fdbk.Controls.Add(this.M1FdbkIN);
             this.panelCh1Fdbk.Controls.Add(this.textBox8);
             this.panelCh1Fdbk.Location = new System.Drawing.Point(320, 38);
             this.panelCh1Fdbk.Name = "panelCh1Fdbk";
             this.panelCh1Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh1Fdbk.TabIndex = 16;
-            // 
-            // M1FdbkOUT
-            // 
-            this.M1FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M1FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M1FdbkOUT.Location = new System.Drawing.Point(190, 5);
-            this.M1FdbkOUT.Name = "M1FdbkOUT";
-            this.M1FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M1FdbkOUT.TabIndex = 18;
-            this.M1FdbkOUT.Text = "OUT";
-            this.M1FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M1FdbkIN
-            // 
-            this.M1FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M1FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M1FdbkIN.Location = new System.Drawing.Point(20, 3);
-            this.M1FdbkIN.Name = "M1FdbkIN";
-            this.M1FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M1FdbkIN.TabIndex = 16;
-            this.M1FdbkIN.Text = "IN";
-            this.M1FdbkIN.UseVisualStyleBackColor = false;
             // 
             // textBox8
             // 
@@ -577,35 +543,11 @@
             // panelCh2Fdbk
             // 
             this.panelCh2Fdbk.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelCh2Fdbk.Controls.Add(this.M2FdbkOUT);
-            this.panelCh2Fdbk.Controls.Add(this.M2FdbkIN);
             this.panelCh2Fdbk.Controls.Add(this.textBox4);
             this.panelCh2Fdbk.Location = new System.Drawing.Point(320, 38);
             this.panelCh2Fdbk.Name = "panelCh2Fdbk";
             this.panelCh2Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh2Fdbk.TabIndex = 16;
-            // 
-            // M2FdbkOUT
-            // 
-            this.M2FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M2FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M2FdbkOUT.Location = new System.Drawing.Point(190, 5);
-            this.M2FdbkOUT.Name = "M2FdbkOUT";
-            this.M2FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M2FdbkOUT.TabIndex = 18;
-            this.M2FdbkOUT.Text = "OUT";
-            this.M2FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M2FdbkIN
-            // 
-            this.M2FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M2FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M2FdbkIN.Location = new System.Drawing.Point(20, 3);
-            this.M2FdbkIN.Name = "M2FdbkIN";
-            this.M2FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M2FdbkIN.TabIndex = 16;
-            this.M2FdbkIN.Text = "IN";
-            this.M2FdbkIN.UseVisualStyleBackColor = false;
             // 
             // textBox4
             // 
@@ -707,35 +649,11 @@
             // panelCh3Fdbk
             // 
             this.panelCh3Fdbk.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelCh3Fdbk.Controls.Add(this.M3FdbkOUT);
-            this.panelCh3Fdbk.Controls.Add(this.M3FdbkIN);
             this.panelCh3Fdbk.Controls.Add(this.textBox11);
             this.panelCh3Fdbk.Location = new System.Drawing.Point(320, 38);
             this.panelCh3Fdbk.Name = "panelCh3Fdbk";
             this.panelCh3Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh3Fdbk.TabIndex = 16;
-            // 
-            // M3FdbkOUT
-            // 
-            this.M3FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M3FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M3FdbkOUT.Location = new System.Drawing.Point(190, 5);
-            this.M3FdbkOUT.Name = "M3FdbkOUT";
-            this.M3FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M3FdbkOUT.TabIndex = 18;
-            this.M3FdbkOUT.Text = "OUT";
-            this.M3FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M3FdbkIN
-            // 
-            this.M3FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M3FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M3FdbkIN.Location = new System.Drawing.Point(20, 3);
-            this.M3FdbkIN.Name = "M3FdbkIN";
-            this.M3FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M3FdbkIN.TabIndex = 16;
-            this.M3FdbkIN.Text = "IN";
-            this.M3FdbkIN.UseVisualStyleBackColor = false;
             // 
             // textBox11
             // 
@@ -837,35 +755,11 @@
             // panelCh4Fdbk
             // 
             this.panelCh4Fdbk.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelCh4Fdbk.Controls.Add(this.M4FdbkOUT);
-            this.panelCh4Fdbk.Controls.Add(this.M4FdbkIN);
             this.panelCh4Fdbk.Controls.Add(this.textBox15);
             this.panelCh4Fdbk.Location = new System.Drawing.Point(320, 38);
             this.panelCh4Fdbk.Name = "panelCh4Fdbk";
             this.panelCh4Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh4Fdbk.TabIndex = 16;
-            // 
-            // M4FdbkOUT
-            // 
-            this.M4FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M4FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M4FdbkOUT.Location = new System.Drawing.Point(190, 5);
-            this.M4FdbkOUT.Name = "M4FdbkOUT";
-            this.M4FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M4FdbkOUT.TabIndex = 18;
-            this.M4FdbkOUT.Text = "OUT";
-            this.M4FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M4FdbkIN
-            // 
-            this.M4FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M4FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M4FdbkIN.Location = new System.Drawing.Point(20, 3);
-            this.M4FdbkIN.Name = "M4FdbkIN";
-            this.M4FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M4FdbkIN.TabIndex = 16;
-            this.M4FdbkIN.Text = "IN";
-            this.M4FdbkIN.UseVisualStyleBackColor = false;
             // 
             // textBox15
             // 
@@ -967,35 +861,11 @@
             // panelCh5Fdbk
             // 
             this.panelCh5Fdbk.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelCh5Fdbk.Controls.Add(this.M5FdbkOUT);
-            this.panelCh5Fdbk.Controls.Add(this.M5FdbkIN);
             this.panelCh5Fdbk.Controls.Add(this.textBox19);
             this.panelCh5Fdbk.Location = new System.Drawing.Point(320, 38);
             this.panelCh5Fdbk.Name = "panelCh5Fdbk";
             this.panelCh5Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh5Fdbk.TabIndex = 16;
-            // 
-            // M5FdbkOUT
-            // 
-            this.M5FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M5FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M5FdbkOUT.Location = new System.Drawing.Point(190, 5);
-            this.M5FdbkOUT.Name = "M5FdbkOUT";
-            this.M5FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M5FdbkOUT.TabIndex = 18;
-            this.M5FdbkOUT.Text = "OUT";
-            this.M5FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M5FdbkIN
-            // 
-            this.M5FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M5FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M5FdbkIN.Location = new System.Drawing.Point(20, 3);
-            this.M5FdbkIN.Name = "M5FdbkIN";
-            this.M5FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M5FdbkIN.TabIndex = 16;
-            this.M5FdbkIN.Text = "IN";
-            this.M5FdbkIN.UseVisualStyleBackColor = false;
             // 
             // textBox19
             // 
@@ -1170,12 +1040,8 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Panel panelCh1Fdbk;
         private System.Windows.Forms.TextBox textBox8;
-        private RoundButton M1FdbkOUT;
-        private RoundButton M1FdbkIN;
         private System.Windows.Forms.Panel panelCh2;
         private System.Windows.Forms.Panel panelCh2Fdbk;
-        private RoundButton M2FdbkOUT;
-        private RoundButton M2FdbkIN;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Panel panelCh2Cmd;
         private System.Windows.Forms.TextBox textBox6;
@@ -1185,8 +1051,6 @@
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Panel panelCh3;
         private System.Windows.Forms.Panel panelCh3Fdbk;
-        private RoundButton M3FdbkOUT;
-        private RoundButton M3FdbkIN;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Panel panelCh3Cmd;
         private System.Windows.Forms.TextBox textBox12;
@@ -1196,8 +1060,6 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Panel panelCh4;
         private System.Windows.Forms.Panel panelCh4Fdbk;
-        private RoundButton M4FdbkOUT;
-        private RoundButton M4FdbkIN;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Panel panelCh4Cmd;
         private System.Windows.Forms.TextBox textBox16;
@@ -1207,8 +1069,6 @@
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Panel panelCh5;
         private System.Windows.Forms.Panel panelCh5Fdbk;
-        private RoundButton M5FdbkOUT;
-        private RoundButton M5FdbkIN;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Panel panelCh5Cmd;
         private System.Windows.Forms.TextBox textBox20;
