@@ -311,58 +311,125 @@ namespace Arduino_Shutter_Control
 
                     var panel1 = Controls[panelChannelName];
                     var panel2 = panel1.Controls[panelFdbkName];
-                    var button = panel2.Controls[buttonName];
 
-                    if (ArduinoControl.MotorFeedback[i].FwdLimit)
-                    {
-                        button.BackColor = Color.Green;
-                        button.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        button.BackColor = Color.Silver;
-                        button.ForeColor = Color.Black;
-                    }
-
+                    var buttonIN = panel2.Controls[buttonName];
                     buttonName = "M" + i.ToString() + "FdbkOUT";
-                    button = panel2.Controls[buttonName];
-                    if (ArduinoControl.MotorFeedback[i].RevLimit)
-                    {
-                        button.BackColor = Color.Green;
-                        button.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        button.BackColor = Color.Silver;
-                        button.ForeColor = Color.Black;
-                    }
+                    var buttonOUT = panel2.Controls[buttonName];
 
                     panelFdbkName = "panelCh" + i.ToString() + "Cmd";
                     var panel3 = panel1.Controls[panelFdbkName];
                     buttonName = "buttonM" + i.ToString() + "CmdIN";
-                    button = panel3.Controls[buttonName];
-                    if (ArduinoControl.MotorFeedback[i].FwdCommand)
-                    {
-                        button.BackColor = Color.Green;
-                        button.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        button.BackColor = Color.Silver;
-                        button.ForeColor = Color.Black;
-                    }
+                    var buttonINCmd = panel3.Controls[buttonName];
 
                     buttonName = "buttonM" + i.ToString() + "CmdOUT";
-                    button = panel3.Controls[buttonName];
-                    if (ArduinoControl.MotorFeedback[i].RevCommand)
+                    var buttonOUTCmd = panel3.Controls[buttonName];
+
+                    if (SystemConfig.FwdIsIN[i])
                     {
-                        button.BackColor = Color.Green;
-                        button.ForeColor = Color.White;
+                        
+                        //IN Feedback
+                        if (ArduinoControl.MotorFeedback[i].FwdLimit)
+                        {
+                            buttonIN.BackColor = Color.Green;
+                            buttonIN.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonIN.BackColor = Color.Silver;
+                            buttonIN.ForeColor = Color.Black;
+                        }
+
+                        //OUT Feedback
+                        
+                        if (ArduinoControl.MotorFeedback[i].RevLimit)
+                        {
+                            buttonOUT.BackColor = Color.Green;
+                            buttonOUT.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonOUT.BackColor = Color.Silver;
+                            buttonOUT.ForeColor = Color.Black;
+                        }
+
+                        //IN CMD 
+                        
+                        if (ArduinoControl.MotorFeedback[i].FwdCommand)
+                        {
+                            buttonINCmd.BackColor = Color.Green;
+                            buttonINCmd.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonINCmd.BackColor = Color.Silver;
+                            buttonINCmd.ForeColor = Color.Black;
+                        }
+
+                        //OUT CMD 
+                        
+                        if (ArduinoControl.MotorFeedback[i].RevCommand)
+                        {
+                            buttonOUTCmd.BackColor = Color.Green;
+                            buttonOUTCmd.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonOUTCmd.BackColor = Color.Silver;
+                            buttonOUTCmd.ForeColor = Color.Black;
+                        }
                     }
                     else
                     {
-                        button.BackColor = Color.Silver;
-                        button.ForeColor = Color.Black;
+                        //IN Feedback
+                        if (ArduinoControl.MotorFeedback[i].RevLimit)
+                        {
+                            buttonIN.BackColor = Color.Green;
+                            buttonIN.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonIN.BackColor = Color.Silver;
+                            buttonIN.ForeColor = Color.Black;
+                        }
+
+                        //OUT Feedback
+
+                        if (ArduinoControl.MotorFeedback[i].FwdLimit)
+                        {
+                            buttonOUT.BackColor = Color.Green;
+                            buttonOUT.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonOUT.BackColor = Color.Silver;
+                            buttonOUT.ForeColor = Color.Black;
+                        }
+
+                        //IN CMD 
+
+                        if (ArduinoControl.MotorFeedback[i].RevCommand)
+                        {
+                            buttonINCmd.BackColor = Color.Green;
+                            buttonINCmd.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonINCmd.BackColor = Color.Silver;
+                            buttonINCmd.ForeColor = Color.Black;
+                        }
+
+                        //OUT CMD 
+
+                        if (ArduinoControl.MotorFeedback[i].FwdCommand)
+                        {
+                            buttonOUTCmd.BackColor = Color.Green;
+                            buttonOUTCmd.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            buttonOUTCmd.BackColor = Color.Silver;
+                            buttonOUTCmd.ForeColor = Color.Black;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -472,14 +539,38 @@ namespace Arduino_Shutter_Control
         }
 
         //Button Event Handler
-        private void buttonM1CmdIN_Click(object sender, EventArgs e)
+        private void buttonMCmdIN_Click(object sender, EventArgs e)
         {
-            SerialMsgJustSent = ArduinoControl.RunMotor(1, false, SerialMsgJustSent);
+            bool direction;
+            var button = (Button)sender;
+            var buttonName = button.Name;
+            var channelString = buttonName.Substring("buttonM".Length, buttonName.IndexOf("Cmd") - "buttonM".Length);
+            if (SystemConfig.FwdIsIN[Convert.ToInt32(channelString)])
+            {
+                direction = false;
+            }
+            else
+            {
+                direction = true;
+            }
+            SerialMsgJustSent = ArduinoControl.RunMotor(Convert.ToInt32(channelString), direction, SerialMsgJustSent);
         }
 
-        private void buttonM1CmdOUT_Click(object sender, EventArgs e)
+        private void buttonMCmdOUT_Click(object sender, EventArgs e)
         {
-            SerialMsgJustSent = ArduinoControl.RunMotor(1, true, SerialMsgJustSent);
+            bool direction;
+            var button = (Button)sender;
+            var buttonName = button.Name;
+            var channelString = buttonName.Substring("buttonM".Length, buttonName.IndexOf("Cmd") - "buttonM".Length);
+            if (SystemConfig.FwdIsIN[Convert.ToInt32(channelString)])
+            {
+                direction = true;
+            }
+            else
+            {
+                direction = false;
+            }
+            SerialMsgJustSent = ArduinoControl.RunMotor(Convert.ToInt32(channelString), direction, SerialMsgJustSent);
         }
 
         //Update Configuration Status Text Box

@@ -126,7 +126,14 @@ namespace Arduino_Shutter_Control
             }
             SendingMsg = true;
             var msg = "M_" + MotorNumber.ToString() + "_" + Convert.ToInt16(Direction).ToString();
-            port.Write(msg);
+            if (port.IsOpen)
+            {
+                try
+                {
+                    port.Write(msg);
+                }
+                catch (Exception ex) { }
+            }
             return false;
         }
 

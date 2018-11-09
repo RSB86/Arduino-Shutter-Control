@@ -106,6 +106,9 @@ void ParseMotorToRun(String msg)
     DirectionStr = msg.charAt(secondUnderscore+1);
     MotorNumber = MotorNumberStr.toInt();
     Direction = DirectionStr.toInt();
+
+    digitalWrite(2*MotorNumber+Direction+20,HIGH);
+    digitalWrite(13,!digitalRead(13));
   }
   else
   {
@@ -116,10 +119,10 @@ void ParseMotorToRun(String msg)
   /* *************************************** */
   /* INSERT CODE TO START MOTOR WHEN RUNNING */
   /* *************************************** */
-  
-  }
-}
 
+  
+  
+}
 
 //Function to create messag with Inputs feedback
 void SendFeedback()
@@ -130,9 +133,8 @@ void SendFeedback()
   {
     msg = msg + "FB_";
     msg = msg + i + "_";
-    msg = msg + digitalRead(i*2)+ "_"+ digitalRead(i*2+1);
+    msg = msg + !digitalRead(i*2)+ "_"+ !digitalRead(i*2+1);
     msg = msg + "_" + digitalRead(i*2+20)+ "_"+ digitalRead(i*2+21);
-    //Serial.flush();
   }  
   Serial.println(msg);
 }
