@@ -17,6 +17,8 @@ namespace Arduino_Shutter_Control
 
         public bool Connected { get; set; }
 
+        public bool SendingMsg { get; set; }
+
         private SerialPort port = new SerialPort();
 
         public MotorData[] MotorFeedback = new MotorData[10];
@@ -102,11 +104,30 @@ namespace Arduino_Shutter_Control
         }
 
         //Msg to Arduino to run motor
-        public string RunMotor(int MotorNumber, bool Direction)  //Direction = false --> Fwd; Direction = true -->Rev
+        public bool RunMotor(int MotorNumber, bool Direction, bool wait)  //Direction = false --> Fwd; Direction = true -->Rev
         {
+
+            if (wait) // wait 20 ms after another message has just been sent to prevent data loss
+            {
+                var milliSecondNow = DateTime.UtcNow.Millisecond;
+                var secondNow = DateTime.UtcNow.Second;
+                var timespan = 0;
+                while ((timespan) < 20)
+                {
+                    if (DateTime.UtcNow.Second > secondNow)
+                    {
+                        timespan = DateTime.UtcNow.Millisecond + 1000 - secondNow;
+                    }
+                    else
+                    {
+                        timespan = DateTime.UtcNow.Millisecond - milliSecondNow;
+                    }
+                }
+            }
+            SendingMsg = true;
             var msg = "M_" + MotorNumber.ToString() + "_" + Convert.ToInt16(Direction).ToString();
             port.Write(msg);
-            return msg;
+            return false;
         }
 
         //Arduino Read Data Motor Feedback
@@ -139,6 +160,8 @@ namespace Arduino_Shutter_Control
                 MotorFeedback[Convert.ToInt32(motorDataSplit[1])].MotorNumber = Convert.ToInt32(motorDataSplit[1]);
                 MotorFeedback[Convert.ToInt32(motorDataSplit[1])].FwdLimit = Convert.ToBoolean(Convert.ToInt32(motorDataSplit[2]));
                 MotorFeedback[Convert.ToInt32(motorDataSplit[1])].RevLimit = Convert.ToBoolean(Convert.ToInt32(motorDataSplit[3]));
+                MotorFeedback[Convert.ToInt32(motorDataSplit[1])].FwdCommand = Convert.ToBoolean(Convert.ToInt32(motorDataSplit[4]));
+                MotorFeedback[Convert.ToInt32(motorDataSplit[1])].RevCommand = Convert.ToBoolean(Convert.ToInt32(motorDataSplit[5]));
                 readData = readData.Remove(0, motorData.Length);
             }
         }

@@ -35,26 +35,41 @@ void setup() {
   //Setup INPUTS
   pinMode(M1_FWD_LIMIT,INPUT_PULLUP);
   pinMode(M1_REV_LIMIT,INPUT_PULLUP);
+  pinMode(M2_FWD_LIMIT,INPUT_PULLUP);
+  pinMode(M2_REV_LIMIT,INPUT_PULLUP);
+  pinMode(M3_FWD_LIMIT,INPUT_PULLUP);
+  pinMode(M3_REV_LIMIT,INPUT_PULLUP);
+  pinMode(M4_FWD_LIMIT,INPUT_PULLUP);
+  pinMode(M4_REV_LIMIT,INPUT_PULLUP);
+  pinMode(M5_FWD_LIMIT,INPUT_PULLUP);
+  pinMode(M5_REV_LIMIT,INPUT_PULLUP);
 
   //Setup Outputs
   pinMode(13,OUTPUT);
   pinMode(M1_FWD,OUTPUT);
   pinMode(M1_REV,OUTPUT);
+  pinMode(M2_FWD,OUTPUT);
+  pinMode(M2_REV,OUTPUT);
+  pinMode(M3_FWD,OUTPUT);
+  pinMode(M3_REV,OUTPUT);
+  pinMode(M4_FWD,OUTPUT);
+  pinMode(M4_REV,OUTPUT);
+  pinMode(M5_FWD,OUTPUT);
+  pinMode(M5_REV,OUTPUT);
 
   //Setup Serial comms
   Serial.begin(57600);
+  Serial.setTimeout(50);
 }
 
 void loop() {
-  if (digitalRead(M1_REV_LIMIT))
-  {
-    digitalWrite(13,HIGH);
-  }
-  else
-  {
-    digitalWrite(13,LOW);
-  }
-  delay(10);
+
+  /* ************************************** */
+  /* INSERT CODE TO STOP MOTOR WHEN RUNNING */
+  /* ************************************** */
+
+  
+  delay(10); //Remove after including motor code
 }
 
 void serialEvent()
@@ -62,37 +77,61 @@ void serialEvent()
   String serial_input = Serial.readString();
   if (serial_input == "Connect")
   {
-      while (!Serial.availableForWrite())
-      {
-      }
       Serial.println("Connection Successful");
-      //Serial.flush();
   }
-  else if (serial_input = "GetFeedback")
+  else if (serial_input == "GetFeedback")
   {
     SendFeedback();    
   }
-    else if (serial_input == "M_1_0")
-    {
-      digitalWrite(13,HIGH);
-    }
-      else if (serial_input == "M_1_1")
-      {
-        digitalWrite(13,LOW);
-      }
+  else 
+  {
+    ParseMotorToRun (serial_input);
+  }
+    
   serial_input = "";
 }
 
+void ParseMotorToRun(String msg)
+{
+  int firstUnderscore,secondUnderscore;
+  String MotorNumberStr, DirectionStr;
+  int MotorNumber, Direction;
+  
+  if (msg.startsWith("M"))
+  {
+    
+    firstUnderscore = msg.indexOf('_');
+    secondUnderscore = msg.lastIndexOf('_');
+    MotorNumberStr = msg.substring(firstUnderscore+1,secondUnderscore);
+    DirectionStr = msg.charAt(secondUnderscore+1);
+    MotorNumber = MotorNumberStr.toInt();
+    Direction = DirectionStr.toInt();
+  }
+  else
+  {
+    MotorNumber = 0;
+    Direction = 0;
+  }
 
+  /* *************************************** */
+  /* INSERT CODE TO START MOTOR WHEN RUNNING */
+  /* *************************************** */
+  
+  }
+}
+
+
+//Function to create messag with Inputs feedback
 void SendFeedback()
 {
-  String msg; //Format: FB_MotorNumber_FWDLimt_REVLimit
+  String msg; //Format: FB_MotorNumber_FWDLimt_REVLimit_FWDOutput_REVOutput
   int i;
   for (i=1; i <= NUM_MOTORS; i++)
   {
     msg = msg + "FB_";
     msg = msg + i + "_";
-    msg = msg + digitalRead(M1_FWD_LIMIT)+ "_"+ digitalRead(M1_REV_LIMIT);
+    msg = msg + digitalRead(i*2)+ "_"+ digitalRead(i*2+1);
+    msg = msg + "_" + digitalRead(i*2+20)+ "_"+ digitalRead(i*2+21);
     //Serial.flush();
   }  
   Serial.println(msg);

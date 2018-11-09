@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Management;
 using System.IO.Ports;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace Arduino_Shutter_Control
 {
@@ -17,19 +18,42 @@ namespace Arduino_Shutter_Control
     {
         public string MotorName;
         public int MotorNumber;
-        public bool FwdLimit, RevLimit;
+        public bool FwdLimit, RevLimit, FwdCommand, RevCommand;
     }
 
     public partial class Form1 : Form
     {
+        //Class Variables
+
         string commPort = "";
-        int NumberChannelsUsed = 0;
+        int NumberChannelsUsed;
         private ArduinoComms ArduinoControl = new ArduinoComms();
         private System.Windows.Forms.Timer readDataTimer = new System.Windows.Forms.Timer();
+        public bool SerialMsgJustSent;
+        public int MaxChannelsAvaialble = 5;
+        private string ConfigFilePath = @"C:\Users\Public\Documents\ElectricalControls\ShutterControl";
+        private ShutterConfiguration SystemConfig;// = new ShutterConfiguration(MaxChannelsAvaialble + 1);
 
+        //Form
         public Form1()
         {
             InitializeComponent();
+
+            CreateDirectory(ConfigFilePath);
+
+            SystemConfig = SystemConfig = new ShutterConfiguration(MaxChannelsAvaialble + 1);
+
+            //Read Config file
+            if (ReadConfiguration(ConfigFilePath))
+            {
+                NumberChannelsUsed = SystemConfig.NumberChannelsConfigured;
+            }
+            else
+            {
+                NumberChannelsUsed = 0;
+            }
+
+            
 
             SetTimer(); //initialise timer
 
@@ -38,7 +62,7 @@ namespace Arduino_Shutter_Control
             ArduinoControl.ArduinoConnected += ArduinoControl_ArduinoConnected; //Event when connected to Arduino
             ArduinoControl.ArduinoDisconnected += ArduinoControl_ArduinoDisconnected; //Event when disconnected from Arduino
 
-            textBox1.Text = "Please select a device from the list and press connect";
+            textBox1.Text = "Please select a device from the list to connect";
 
             //disable connect and disconnect button when program starts 
             buttonConnect.Enabled = false;
@@ -66,62 +90,120 @@ namespace Arduino_Shutter_Control
             }
         }
 
-        private void NumChanneslConfigured_ValueChanged(object sender, EventArgs e)
-        {
-            NumberChannelsUsed = (int)NumChanneslConfigured.Value;
-            updateChannelsPanelVisibility();
-        }
-
+        //Panels Visbility
         private void updateChannelsPanelVisibility()
         {
             switch (NumberChannelsUsed)
             {
                 case 1:
                     panelCh1.Visible = true;
+                    textBoxCh1FwdPosIs.Visible = true;
+                    comboBoxCh1.Visible = true;
                     panelCh2.Visible = false;
+                    textBoxCh2FwdPosIs.Visible = false;
+                    comboBoxCh2.Visible = false;
                     panelCh3.Visible = false;
+                    textBoxCh3FwdPosIs.Visible = false;
+                    comboBoxCh3.Visible = false;
                     panelCh4.Visible = false;
+                    textBoxCh4FwdPosIs.Visible = false;
+                    comboBoxCh4.Visible = false;
                     panelCh5.Visible = false;
+                    textBoxCh5FwdPosIs.Visible = false;
+                    comboBoxCh5.Visible = false;
+
                     break;
                 case 2:
                     panelCh1.Visible = true;
+                    textBoxCh1FwdPosIs.Visible = true;
+                    comboBoxCh1.Visible = true;
                     panelCh2.Visible = true;
+                    textBoxCh2FwdPosIs.Visible = true;
+                    comboBoxCh2.Visible = true;
                     panelCh3.Visible = false;
+                    textBoxCh3FwdPosIs.Visible = false;
+                    comboBoxCh3.Visible = false;
                     panelCh4.Visible = false;
+                    textBoxCh4FwdPosIs.Visible = false;
+                    comboBoxCh4.Visible = false;
                     panelCh5.Visible = false;
+                    textBoxCh5FwdPosIs.Visible = false;
+                    comboBoxCh5.Visible = false;
                     break;
                 case 3:
                     panelCh1.Visible = true;
+                    textBoxCh1FwdPosIs.Visible = true;
+                    comboBoxCh1.Visible = true;
                     panelCh2.Visible = true;
+                    textBoxCh2FwdPosIs.Visible = true;
+                    comboBoxCh2.Visible = true;
                     panelCh3.Visible = true;
+                    textBoxCh3FwdPosIs.Visible = true;
+                    comboBoxCh3.Visible = true;
                     panelCh4.Visible = false;
+                    textBoxCh4FwdPosIs.Visible = false;
+                    comboBoxCh4.Visible = false;
                     panelCh5.Visible = false;
+                    textBoxCh5FwdPosIs.Visible = false;
+                    comboBoxCh5.Visible = false;
                     break;
                 case 4:
                     panelCh1.Visible = true;
+                    textBoxCh1FwdPosIs.Visible = true;
+                    comboBoxCh1.Visible = true;
                     panelCh2.Visible = true;
+                    textBoxCh2FwdPosIs.Visible = true;
+                    comboBoxCh2.Visible = true;
                     panelCh3.Visible = true;
+                    textBoxCh3FwdPosIs.Visible = true;
+                    comboBoxCh3.Visible = true;
                     panelCh4.Visible = true;
+                    textBoxCh4FwdPosIs.Visible = true;
+                    comboBoxCh4.Visible = true;
                     panelCh5.Visible = false;
+                    textBoxCh5FwdPosIs.Visible = false;
+                    comboBoxCh5.Visible = false;
                     break;
                 case 5:
                     panelCh1.Visible = true;
+                    textBoxCh1FwdPosIs.Visible = true;
+                    comboBoxCh1.Visible = true;
                     panelCh2.Visible = true;
+                    textBoxCh2FwdPosIs.Visible = true;
+                    comboBoxCh2.Visible = true;
                     panelCh3.Visible = true;
+                    textBoxCh3FwdPosIs.Visible = true;
+                    comboBoxCh3.Visible = true;
                     panelCh4.Visible = true;
+                    textBoxCh4FwdPosIs.Visible = true;
+                    comboBoxCh4.Visible = true;
                     panelCh5.Visible = true;
+                    textBoxCh5FwdPosIs.Visible = true;
+                    comboBoxCh5.Visible = true;
                     break;
                 default:
                     panelCh1.Visible = false;
+                    textBoxCh1FwdPosIs.Visible = false;
+                    comboBoxCh1.Visible = false;
                     panelCh2.Visible = false;
+                    textBoxCh2FwdPosIs.Visible = false;
+                    comboBoxCh2.Visible = false;
                     panelCh3.Visible = false;
+                    textBoxCh3FwdPosIs.Visible = false;
+                    comboBoxCh3.Visible = false;
                     panelCh4.Visible = false;
+                    textBoxCh4FwdPosIs.Visible = false;
+                    comboBoxCh4.Visible = false;
                     panelCh5.Visible = false;
+                    textBoxCh5FwdPosIs.Visible = false;
+                    comboBoxCh5.Visible = false;
                     break;
 
             }
+            updateSystemConfigData();
         }
 
+        //Arduino Events for Animation
         void ArduinoControl_ArduinoConnected (object sender, EventArgs e)
         {
             buttonConnect.Enabled = false;
@@ -190,62 +272,195 @@ namespace Arduino_Shutter_Control
             }
             readDataTimer.Stop();
         }
-
+        
+        
+        //Timer Event
         void SetTimer()
         {
-            readDataTimer.Interval = 2000; // faster than this causes communication issues
+            readDataTimer.Interval = 200; // faster than this causes communication issues
             readDataTimer.Tick += OnTimerTick;
             readDataTimer.Enabled = true;
         }
 
         void OnTimerTick(object source, EventArgs e)
         {
-            if (ArduinoControl.Connected)
+            if (ArduinoControl.Connected & ArduinoControl.SendingMsg == false)
             {
+                SerialMsgJustSent = true;
                 ArduinoControl.GetMotorFeedbacks();
 
                 //Update object visibility
                 UpdateScreenAnimation();
 
             }
+            ArduinoControl.SendingMsg = false;
         }
 
+
+        //Buttons Animation
         void UpdateScreenAnimation()
         {
             var i=1;
             for (i = 1; i <= NumberChannelsUsed; i++)
             {
-                var panelChannelName = "panelCh" + i.ToString();
-                var panelFdbkName = "panelCh" + i.ToString() + "Fdbk";
-                var buttonName = "M" + i.ToString() + "FdbkIN";
-
-                var panel1 = Controls[panelChannelName];
-                var panel2 = panel1.Controls[panelFdbkName];
-                var button = panel2.Controls[buttonName];
-
-                if (ArduinoControl.MotorFeedback[i].FwdLimit)
+                try
                 {
-                    button.BackColor = Color.Green;
-                    button.ForeColor = Color.White;
+                    var panelChannelName = "panelCh" + i.ToString();
+                    var panelFdbkName = "panelCh" + i.ToString() + "Fdbk";
+                    var buttonName = "M" + i.ToString() + "FdbkIN";
+
+                    var panel1 = Controls[panelChannelName];
+                    var panel2 = panel1.Controls[panelFdbkName];
+                    var button = panel2.Controls[buttonName];
+
+                    if (ArduinoControl.MotorFeedback[i].FwdLimit)
+                    {
+                        button.BackColor = Color.Green;
+                        button.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        button.BackColor = Color.Silver;
+                        button.ForeColor = Color.Black;
+                    }
+
+                    buttonName = "M" + i.ToString() + "FdbkOUT";
+                    button = panel2.Controls[buttonName];
+                    if (ArduinoControl.MotorFeedback[i].RevLimit)
+                    {
+                        button.BackColor = Color.Green;
+                        button.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        button.BackColor = Color.Silver;
+                        button.ForeColor = Color.Black;
+                    }
+
+                    panelFdbkName = "panelCh" + i.ToString() + "Cmd";
+                    var panel3 = panel1.Controls[panelFdbkName];
+                    buttonName = "buttonM" + i.ToString() + "CmdIN";
+                    button = panel3.Controls[buttonName];
+                    if (ArduinoControl.MotorFeedback[i].FwdCommand)
+                    {
+                        button.BackColor = Color.Green;
+                        button.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        button.BackColor = Color.Silver;
+                        button.ForeColor = Color.Black;
+                    }
+
+                    buttonName = "buttonM" + i.ToString() + "CmdOUT";
+                    button = panel3.Controls[buttonName];
+                    if (ArduinoControl.MotorFeedback[i].RevCommand)
+                    {
+                        button.BackColor = Color.Green;
+                        button.ForeColor = Color.White;
+                    }
+                    else
+                    {
+                        button.BackColor = Color.Silver;
+                        button.ForeColor = Color.Black;
+                    }
+                }
+                catch (Exception ex)
+                { }
+            }
+        }
+
+        //Create Saving Directory if it doesn't Exist
+
+        private void CreateDirectory(string Path)
+        {
+            try
+            {
+                var file = new System.IO.FileInfo(Path);
+                file.Directory.Create();
+            }
+            catch (Exception ex)
+            { }
+        }
+
+        //Save and Read Configuration from file
+
+        private bool SaveConfiguration(string ConfigFilePath)
+        {
+            try
+            {
+
+                string json = JsonConvert.SerializeObject(SystemConfig);
+
+                System.IO.File.WriteAllText(ConfigFilePath + "ShutterControl.txt", json);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private bool updateSystemConfigData()
+        {
+            //Populate Gui
+            // Number of channels 
+            NumChanneslConfigured.Value = SystemConfig.NumberChannelsConfigured;
+
+            //Channel Names
+            var i = 1;
+            for (i = 1; i <= NumberChannelsUsed; i++)
+            {
+                try
+                {
+                    var panelChannelName = "panelCh" + i.ToString();
+                    var textBoxName = "M" + i.ToString() + "Name";
+
+                    var panel = Controls[panelChannelName];
+                    panel.Controls[textBoxName].Text = SystemConfig.ChannelName[i];
+
+                    var panelSystem = "panelSystem";
+                    var panelConfig = "panelConfig";
+                    var comboBoxName = "comboBoxCh" + i.ToString();
+                    panel = Controls[panelSystem];
+                    var panel2 = panel.Controls[panelConfig];
+                    if (SystemConfig.FwdIsIN[i])
+                    {
+                        panel2.Controls[comboBoxName].Text = "IN";
+                    }
+                    else
+                    {
+                        panel2.Controls[comboBoxName].Text = "OUT";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool ReadConfiguration(string ConfigFilePath)
+        {
+            try
+            {
+
+                var ConfigString = System.IO.File.ReadAllText(ConfigFilePath + "ShutterControl.txt");
+                SystemConfig = JsonConvert.DeserializeObject<ShutterConfiguration>(ConfigString);
+
+                if (updateSystemConfigData())
+                { 
+                    return true;
                 }
                 else
                 {
-                    button.BackColor = Color.Silver;
-                    button.ForeColor = Color.Black;
+                    return false;
                 }
-
-                buttonName = "M" + i.ToString() + "FdbkOUT";
-                button = panel2.Controls[buttonName];
-                if (ArduinoControl.MotorFeedback[i].RevLimit)
-                {
-                    button.BackColor = Color.Green;
-                    button.ForeColor = Color.White;
-                }
-                else
-                {
-                    button.BackColor = Color.Silver;
-                    button.ForeColor = Color.Black;
-                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
 
@@ -254,6 +469,67 @@ namespace Arduino_Shutter_Control
         {
             base.OnFormClosing(e);
             ArduinoControl.Disconnect();
+        }
+
+        //Button Event Handler
+        private void buttonM1CmdIN_Click(object sender, EventArgs e)
+        {
+            SerialMsgJustSent = ArduinoControl.RunMotor(1, false, SerialMsgJustSent);
+        }
+
+        private void buttonM1CmdOUT_Click(object sender, EventArgs e)
+        {
+            SerialMsgJustSent = ArduinoControl.RunMotor(1, true, SerialMsgJustSent);
+        }
+
+        //Update Configuration Status Text Box
+
+        private void TextBoxConfigurationStatusUpdate (bool result)
+        {
+            if (result)
+            {
+                TextBoxConfigStatus.Text = "Configuration Saved - " + System.DateTime.UtcNow.ToShortDateString() + " " + System.DateTime.UtcNow.ToShortTimeString();
+            }
+            else
+            {
+                TextBoxConfigStatus.Text = "Fail to save Config. - " + System.DateTime.UtcNow.ToShortDateString() + " " + System.DateTime.UtcNow.ToShortTimeString();
+            }
+        }
+
+        //Numeric channels selector event hanlder
+        private void NumChanneslConfigured_ValueChanged(object sender, EventArgs e)
+        {
+            NumberChannelsUsed = (int)NumChanneslConfigured.Value;
+            SystemConfig.NumberChannelsConfigured = NumberChannelsUsed;
+            updateChannelsPanelVisibility();
+            TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
+        }
+
+        //ComboBox Event Handler
+        private void comboBoxCh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = (ComboBox)sender;
+            var comboBoxName = comboBox.Name;
+            var channelString = comboBoxName.Substring("comboBoxCh".Length);
+            var value = comboBox.SelectedItem.ToString();
+            if (value == "IN")
+            {
+                SystemConfig.FwdIsIN[Convert.ToInt32(channelString)] = true;
+            }
+            else
+            {
+                SystemConfig.FwdIsIN[Convert.ToInt32(channelString)] = false;
+            }
+            TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
+        }
+
+        private void MotorName_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+            var textBoxName = textBox.Name;
+            var channelString = textBoxName.Substring(1,textBoxName.IndexOf("Name")-1);
+            SystemConfig.ChannelName[Convert.ToInt32(channelString)] = textBox.Text;
+            TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
         }
     }
 }

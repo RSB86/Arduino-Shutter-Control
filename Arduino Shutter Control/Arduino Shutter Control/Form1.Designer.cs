@@ -39,6 +39,18 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panelSystem = new System.Windows.Forms.Panel();
             this.panelConfig = new System.Windows.Forms.Panel();
+            this.comboBoxCh5 = new System.Windows.Forms.ComboBox();
+            this.textBoxCh5FwdPosIs = new System.Windows.Forms.TextBox();
+            this.comboBoxCh4 = new System.Windows.Forms.ComboBox();
+            this.textBoxCh4FwdPosIs = new System.Windows.Forms.TextBox();
+            this.comboBoxCh3 = new System.Windows.Forms.ComboBox();
+            this.textBoxCh3FwdPosIs = new System.Windows.Forms.TextBox();
+            this.comboBoxCh2 = new System.Windows.Forms.ComboBox();
+            this.textBoxCh2FwdPosIs = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.TextBoxConfigStatus = new System.Windows.Forms.TextBox();
+            this.comboBoxCh1 = new System.Windows.Forms.ComboBox();
+            this.textBoxCh1FwdPosIs = new System.Windows.Forms.TextBox();
             this.NumChanneslConfigured = new System.Windows.Forms.NumericUpDown();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
@@ -60,7 +72,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.M2Name = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.panelCh3 = new System.Windows.Forms.Panel();
             this.panelCh3Fdbk = new System.Windows.Forms.Panel();
@@ -71,7 +83,7 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.M3Name = new System.Windows.Forms.TextBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.panelCh4 = new System.Windows.Forms.Panel();
             this.panelCh4Fdbk = new System.Windows.Forms.Panel();
@@ -82,7 +94,7 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.M4Name = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.panelCh5 = new System.Windows.Forms.Panel();
             this.panelCh5Fdbk = new System.Windows.Forms.Panel();
@@ -93,7 +105,7 @@
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.M5Name = new System.Windows.Forms.TextBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.panelSystem.SuspendLayout();
@@ -173,6 +185,7 @@
             this.buttonM1CmdIN.TabIndex = 5;
             this.buttonM1CmdIN.Text = "IN";
             this.buttonM1CmdIN.UseVisualStyleBackColor = false;
+            this.buttonM1CmdIN.Click += new System.EventHandler(this.buttonM1CmdIN_Click);
             // 
             // buttonM1CmdOUT
             // 
@@ -185,6 +198,7 @@
             this.buttonM1CmdOUT.TabIndex = 6;
             this.buttonM1CmdOUT.Text = "OUT";
             this.buttonM1CmdOUT.UseVisualStyleBackColor = false;
+            this.buttonM1CmdOUT.Click += new System.EventHandler(this.buttonM1CmdOUT_Click);
             // 
             // buttonDisconnect
             // 
@@ -243,6 +257,18 @@
             // panelConfig
             // 
             this.panelConfig.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelConfig.Controls.Add(this.comboBoxCh5);
+            this.panelConfig.Controls.Add(this.textBoxCh5FwdPosIs);
+            this.panelConfig.Controls.Add(this.comboBoxCh4);
+            this.panelConfig.Controls.Add(this.textBoxCh4FwdPosIs);
+            this.panelConfig.Controls.Add(this.comboBoxCh3);
+            this.panelConfig.Controls.Add(this.textBoxCh3FwdPosIs);
+            this.panelConfig.Controls.Add(this.comboBoxCh2);
+            this.panelConfig.Controls.Add(this.textBoxCh2FwdPosIs);
+            this.panelConfig.Controls.Add(this.textBox17);
+            this.panelConfig.Controls.Add(this.TextBoxConfigStatus);
+            this.panelConfig.Controls.Add(this.comboBoxCh1);
+            this.panelConfig.Controls.Add(this.textBoxCh1FwdPosIs);
             this.panelConfig.Controls.Add(this.NumChanneslConfigured);
             this.panelConfig.Controls.Add(this.textBox25);
             this.panelConfig.Controls.Add(this.textBox24);
@@ -250,6 +276,150 @@
             this.panelConfig.Name = "panelConfig";
             this.panelConfig.Size = new System.Drawing.Size(322, 265);
             this.panelConfig.TabIndex = 13;
+            // 
+            // comboBoxCh5
+            // 
+            this.comboBoxCh5.FormattingEnabled = true;
+            this.comboBoxCh5.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh5.Location = new System.Drawing.Point(151, 178);
+            this.comboBoxCh5.Name = "comboBoxCh5";
+            this.comboBoxCh5.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCh5.TabIndex = 28;
+            this.comboBoxCh5.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            // 
+            // textBoxCh5FwdPosIs
+            // 
+            this.textBoxCh5FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxCh5FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCh5FwdPosIs.Enabled = false;
+            this.textBoxCh5FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCh5FwdPosIs.Location = new System.Drawing.Point(17, 178);
+            this.textBoxCh5FwdPosIs.Multiline = true;
+            this.textBoxCh5FwdPosIs.Name = "textBoxCh5FwdPosIs";
+            this.textBoxCh5FwdPosIs.Size = new System.Drawing.Size(128, 22);
+            this.textBoxCh5FwdPosIs.TabIndex = 27;
+            this.textBoxCh5FwdPosIs.Text = "Ch. 5 Up Pos. is";
+            // 
+            // comboBoxCh4
+            // 
+            this.comboBoxCh4.FormattingEnabled = true;
+            this.comboBoxCh4.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh4.Location = new System.Drawing.Point(151, 151);
+            this.comboBoxCh4.Name = "comboBoxCh4";
+            this.comboBoxCh4.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCh4.TabIndex = 26;
+            this.comboBoxCh4.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            // 
+            // textBoxCh4FwdPosIs
+            // 
+            this.textBoxCh4FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxCh4FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCh4FwdPosIs.Enabled = false;
+            this.textBoxCh4FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCh4FwdPosIs.Location = new System.Drawing.Point(17, 151);
+            this.textBoxCh4FwdPosIs.Multiline = true;
+            this.textBoxCh4FwdPosIs.Name = "textBoxCh4FwdPosIs";
+            this.textBoxCh4FwdPosIs.Size = new System.Drawing.Size(128, 22);
+            this.textBoxCh4FwdPosIs.TabIndex = 25;
+            this.textBoxCh4FwdPosIs.Text = "Ch. 4 Up Pos. is";
+            // 
+            // comboBoxCh3
+            // 
+            this.comboBoxCh3.FormattingEnabled = true;
+            this.comboBoxCh3.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh3.Location = new System.Drawing.Point(151, 124);
+            this.comboBoxCh3.Name = "comboBoxCh3";
+            this.comboBoxCh3.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCh3.TabIndex = 24;
+            this.comboBoxCh3.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            // 
+            // textBoxCh3FwdPosIs
+            // 
+            this.textBoxCh3FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxCh3FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCh3FwdPosIs.Enabled = false;
+            this.textBoxCh3FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCh3FwdPosIs.Location = new System.Drawing.Point(17, 124);
+            this.textBoxCh3FwdPosIs.Multiline = true;
+            this.textBoxCh3FwdPosIs.Name = "textBoxCh3FwdPosIs";
+            this.textBoxCh3FwdPosIs.Size = new System.Drawing.Size(128, 22);
+            this.textBoxCh3FwdPosIs.TabIndex = 23;
+            this.textBoxCh3FwdPosIs.Text = "Ch. 3 Up Pos. is";
+            // 
+            // comboBoxCh2
+            // 
+            this.comboBoxCh2.FormattingEnabled = true;
+            this.comboBoxCh2.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh2.Location = new System.Drawing.Point(151, 97);
+            this.comboBoxCh2.Name = "comboBoxCh2";
+            this.comboBoxCh2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCh2.TabIndex = 22;
+            this.comboBoxCh2.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            // 
+            // textBoxCh2FwdPosIs
+            // 
+            this.textBoxCh2FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxCh2FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCh2FwdPosIs.Enabled = false;
+            this.textBoxCh2FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCh2FwdPosIs.Location = new System.Drawing.Point(17, 97);
+            this.textBoxCh2FwdPosIs.Multiline = true;
+            this.textBoxCh2FwdPosIs.Name = "textBoxCh2FwdPosIs";
+            this.textBoxCh2FwdPosIs.Size = new System.Drawing.Size(128, 22);
+            this.textBoxCh2FwdPosIs.TabIndex = 21;
+            this.textBoxCh2FwdPosIs.Text = "Ch. 2 Up Pos. is";
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox17.Enabled = false;
+            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Location = new System.Drawing.Point(4, 213);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(324, 19);
+            this.textBox17.TabIndex = 20;
+            this.textBox17.Text = "Status";
+            // 
+            // TextBoxConfigStatus
+            // 
+            this.TextBoxConfigStatus.Location = new System.Drawing.Point(4, 234);
+            this.TextBoxConfigStatus.Name = "TextBoxConfigStatus";
+            this.TextBoxConfigStatus.Size = new System.Drawing.Size(311, 20);
+            this.TextBoxConfigStatus.TabIndex = 19;
+            // 
+            // comboBoxCh1
+            // 
+            this.comboBoxCh1.FormattingEnabled = true;
+            this.comboBoxCh1.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh1.Location = new System.Drawing.Point(151, 70);
+            this.comboBoxCh1.Name = "comboBoxCh1";
+            this.comboBoxCh1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCh1.TabIndex = 18;
+            this.comboBoxCh1.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            // 
+            // textBoxCh1FwdPosIs
+            // 
+            this.textBoxCh1FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxCh1FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCh1FwdPosIs.Enabled = false;
+            this.textBoxCh1FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCh1FwdPosIs.Location = new System.Drawing.Point(17, 70);
+            this.textBoxCh1FwdPosIs.Multiline = true;
+            this.textBoxCh1FwdPosIs.Name = "textBoxCh1FwdPosIs";
+            this.textBoxCh1FwdPosIs.Size = new System.Drawing.Size(128, 22);
+            this.textBoxCh1FwdPosIs.TabIndex = 17;
+            this.textBoxCh1FwdPosIs.Text = "Ch. 1 Up Pos. is";
             // 
             // NumChanneslConfigured
             // 
@@ -377,6 +547,7 @@
             this.M1Name.Size = new System.Drawing.Size(537, 29);
             this.M1Name.TabIndex = 16;
             this.M1Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M1Name.TextChanged += new System.EventHandler(this.MotorName_TextChanged);
             // 
             // textBox5
             // 
@@ -396,7 +567,7 @@
             this.panelCh2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelCh2.Controls.Add(this.panelCh2Fdbk);
             this.panelCh2.Controls.Add(this.panelCh2Cmd);
-            this.panelCh2.Controls.Add(this.textBox9);
+            this.panelCh2.Controls.Add(this.M2Name);
             this.panelCh2.Controls.Add(this.textBox10);
             this.panelCh2.Location = new System.Drawing.Point(364, 202);
             this.panelCh2.Name = "panelCh2";
@@ -497,15 +668,16 @@
             this.button2.Text = "OUT";
             this.button2.UseVisualStyleBackColor = false;
             // 
-            // textBox9
+            // M2Name
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(77, 4);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(537, 29);
-            this.textBox9.TabIndex = 16;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M2Name.Location = new System.Drawing.Point(77, 4);
+            this.M2Name.Margin = new System.Windows.Forms.Padding(2);
+            this.M2Name.Name = "M2Name";
+            this.M2Name.Size = new System.Drawing.Size(537, 29);
+            this.M2Name.TabIndex = 16;
+            this.M2Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M2Name.TextChanged += new System.EventHandler(this.MotorName_TextChanged);
             // 
             // textBox10
             // 
@@ -525,7 +697,7 @@
             this.panelCh3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelCh3.Controls.Add(this.panelCh3Fdbk);
             this.panelCh3.Controls.Add(this.panelCh3Cmd);
-            this.panelCh3.Controls.Add(this.textBox13);
+            this.panelCh3.Controls.Add(this.M3Name);
             this.panelCh3.Controls.Add(this.textBox14);
             this.panelCh3.Location = new System.Drawing.Point(364, 328);
             this.panelCh3.Name = "panelCh3";
@@ -626,15 +798,16 @@
             this.button4.Text = "OUT";
             this.button4.UseVisualStyleBackColor = false;
             // 
-            // textBox13
+            // M3Name
             // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(77, 4);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(537, 29);
-            this.textBox13.TabIndex = 16;
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M3Name.Location = new System.Drawing.Point(77, 4);
+            this.M3Name.Margin = new System.Windows.Forms.Padding(2);
+            this.M3Name.Name = "M3Name";
+            this.M3Name.Size = new System.Drawing.Size(537, 29);
+            this.M3Name.TabIndex = 16;
+            this.M3Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M3Name.TextChanged += new System.EventHandler(this.MotorName_TextChanged);
             // 
             // textBox14
             // 
@@ -654,7 +827,7 @@
             this.panelCh4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelCh4.Controls.Add(this.panelCh4Fdbk);
             this.panelCh4.Controls.Add(this.panelCh4Cmd);
-            this.panelCh4.Controls.Add(this.textBox17);
+            this.panelCh4.Controls.Add(this.M4Name);
             this.panelCh4.Controls.Add(this.textBox18);
             this.panelCh4.Location = new System.Drawing.Point(364, 459);
             this.panelCh4.Name = "panelCh4";
@@ -755,15 +928,16 @@
             this.button6.Text = "OUT";
             this.button6.UseVisualStyleBackColor = false;
             // 
-            // textBox17
+            // M4Name
             // 
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(77, 4);
-            this.textBox17.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(537, 29);
-            this.textBox17.TabIndex = 16;
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M4Name.Location = new System.Drawing.Point(77, 4);
+            this.M4Name.Margin = new System.Windows.Forms.Padding(2);
+            this.M4Name.Name = "M4Name";
+            this.M4Name.Size = new System.Drawing.Size(537, 29);
+            this.M4Name.TabIndex = 16;
+            this.M4Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M4Name.TextChanged += new System.EventHandler(this.MotorName_TextChanged);
             // 
             // textBox18
             // 
@@ -783,7 +957,7 @@
             this.panelCh5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelCh5.Controls.Add(this.panelCh5Fdbk);
             this.panelCh5.Controls.Add(this.panelCh5Cmd);
-            this.panelCh5.Controls.Add(this.textBox21);
+            this.panelCh5.Controls.Add(this.M5Name);
             this.panelCh5.Controls.Add(this.textBox22);
             this.panelCh5.Location = new System.Drawing.Point(364, 590);
             this.panelCh5.Name = "panelCh5";
@@ -884,15 +1058,16 @@
             this.button8.Text = "OUT";
             this.button8.UseVisualStyleBackColor = false;
             // 
-            // textBox21
+            // M5Name
             // 
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox21.Location = new System.Drawing.Point(77, 4);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(537, 29);
-            this.textBox21.TabIndex = 16;
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M5Name.Location = new System.Drawing.Point(77, 4);
+            this.M5Name.Margin = new System.Windows.Forms.Padding(2);
+            this.M5Name.Name = "M5Name";
+            this.M5Name.Size = new System.Drawing.Size(537, 29);
+            this.M5Name.TabIndex = 16;
+            this.M5Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.M5Name.TextChanged += new System.EventHandler(this.MotorName_TextChanged);
             // 
             // textBox22
             // 
@@ -1006,7 +1181,7 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox M2Name;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Panel panelCh3;
         private System.Windows.Forms.Panel panelCh3Fdbk;
@@ -1017,7 +1192,7 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox M3Name;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Panel panelCh4;
         private System.Windows.Forms.Panel panelCh4Fdbk;
@@ -1028,7 +1203,7 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox M4Name;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Panel panelCh5;
         private System.Windows.Forms.Panel panelCh5Fdbk;
@@ -1039,13 +1214,25 @@
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox M5Name;
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.Panel panelConfig;
         private System.Windows.Forms.NumericUpDown NumChanneslConfigured;
         private System.Windows.Forms.TextBox textBox25;
         private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox textBoxCh1FwdPosIs;
+        private System.Windows.Forms.ComboBox comboBoxCh1;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox TextBoxConfigStatus;
+        private System.Windows.Forms.ComboBox comboBoxCh5;
+        private System.Windows.Forms.TextBox textBoxCh5FwdPosIs;
+        private System.Windows.Forms.ComboBox comboBoxCh4;
+        private System.Windows.Forms.TextBox textBoxCh4FwdPosIs;
+        private System.Windows.Forms.ComboBox comboBoxCh3;
+        private System.Windows.Forms.TextBox textBoxCh3FwdPosIs;
+        private System.Windows.Forms.ComboBox comboBoxCh2;
+        private System.Windows.Forms.TextBox textBoxCh2FwdPosIs;
     }
 }
 
