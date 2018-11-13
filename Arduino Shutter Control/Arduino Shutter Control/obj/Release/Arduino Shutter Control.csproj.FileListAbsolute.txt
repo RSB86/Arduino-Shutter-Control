@@ -1,0 +1,12 @@
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Release\Arduino Shutter Control.exe.config
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Release\Arduino Shutter Control.exe
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Release\Arduino Shutter Control.pdb
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Release\Newtonsoft.Json.dll
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Release\Newtonsoft.Json.xml
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino_Shutter_Control.Form1.resources
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino_Shutter_Control.Properties.Resources.resources
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino Shutter Control.csproj.GenerateResource.cache
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino Shutter Control.csproj.CoreCompileInputs.cache
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino Shutter Control.csproj.CopyComplete
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino Shutter Control.exe
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Release\Arduino Shutter Control.pdb

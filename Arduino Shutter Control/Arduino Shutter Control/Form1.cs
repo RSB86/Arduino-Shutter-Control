@@ -18,7 +18,7 @@ namespace Arduino_Shutter_Control
     {
         public string MotorName;
         public int MotorNumber;
-        public bool FwdLimit, RevLimit, FwdCommand, RevCommand;
+        public bool FwdLimit, RevLimit, FwdCommand, RevCommand, InPosition, OutPosition;
     }
 
     public partial class Form1 : Form
@@ -29,10 +29,11 @@ namespace Arduino_Shutter_Control
         int NumberChannelsUsed;
         private ArduinoComms ArduinoControl = new ArduinoComms();
         private System.Windows.Forms.Timer readDataTimer = new System.Windows.Forms.Timer();
+        private System.Windows.Forms.Timer[] ChannelReturnTimer;
         public bool SerialMsgJustSent;
         public int MaxChannelsAvaialble = 5;
         private string ConfigFilePath = @"C:\Users\Public\Documents\ElectricalControls\ShutterControl";
-        private ShutterConfiguration SystemConfig;// = new ShutterConfiguration(MaxChannelsAvaialble + 1);
+        private ShutterConfiguration SystemConfig;
 
         //Form
         public Form1()
@@ -41,7 +42,7 @@ namespace Arduino_Shutter_Control
 
             CreateDirectory(ConfigFilePath);
 
-            SystemConfig = SystemConfig = new ShutterConfiguration(MaxChannelsAvaialble + 1);
+            SystemConfig = new ShutterConfiguration(MaxChannelsAvaialble + 1);
 
             //Read Config file
             if (ReadConfiguration(ConfigFilePath))
@@ -55,7 +56,7 @@ namespace Arduino_Shutter_Control
 
             
 
-            SetTimer(); //initialise timer
+            SetTimers(); //initialise timer
 
             updateChannelsPanelVisibility();
 
@@ -97,106 +98,76 @@ namespace Arduino_Shutter_Control
             {
                 case 1:
                     panelCh1.Visible = true;
-                    textBoxCh1FwdPosIs.Visible = true;
-                    comboBoxCh1.Visible = true;
+                    panelCh1Config.Visible = true;
                     panelCh2.Visible = false;
-                    textBoxCh2FwdPosIs.Visible = false;
-                    comboBoxCh2.Visible = false;
+                    panelCh2Config.Visible = false;
                     panelCh3.Visible = false;
-                    textBoxCh3FwdPosIs.Visible = false;
-                    comboBoxCh3.Visible = false;
+                    panelCh3Config.Visible = false;
                     panelCh4.Visible = false;
-                    textBoxCh4FwdPosIs.Visible = false;
-                    comboBoxCh4.Visible = false;
+                    panelCh4Config.Visible = false;
                     panelCh5.Visible = false;
-                    textBoxCh5FwdPosIs.Visible = false;
-                    comboBoxCh5.Visible = false;
+                    panelCh5Config.Visible = false;
 
                     break;
                 case 2:
                     panelCh1.Visible = true;
-                    textBoxCh1FwdPosIs.Visible = true;
-                    comboBoxCh1.Visible = true;
+                    panelCh1Config.Visible = true;
                     panelCh2.Visible = true;
-                    textBoxCh2FwdPosIs.Visible = true;
-                    comboBoxCh2.Visible = true;
+                    panelCh2Config.Visible = true;
                     panelCh3.Visible = false;
-                    textBoxCh3FwdPosIs.Visible = false;
-                    comboBoxCh3.Visible = false;
+                    panelCh3Config.Visible = false;
                     panelCh4.Visible = false;
-                    textBoxCh4FwdPosIs.Visible = false;
-                    comboBoxCh4.Visible = false;
+                    panelCh4Config.Visible = false;
                     panelCh5.Visible = false;
-                    textBoxCh5FwdPosIs.Visible = false;
-                    comboBoxCh5.Visible = false;
+                    panelCh5Config.Visible = false;
                     break;
                 case 3:
                     panelCh1.Visible = true;
-                    textBoxCh1FwdPosIs.Visible = true;
-                    comboBoxCh1.Visible = true;
+                    panelCh1Config.Visible = true;
                     panelCh2.Visible = true;
-                    textBoxCh2FwdPosIs.Visible = true;
-                    comboBoxCh2.Visible = true;
+                    panelCh2Config.Visible = true;
                     panelCh3.Visible = true;
-                    textBoxCh3FwdPosIs.Visible = true;
-                    comboBoxCh3.Visible = true;
+                    panelCh3Config.Visible = true;
                     panelCh4.Visible = false;
-                    textBoxCh4FwdPosIs.Visible = false;
-                    comboBoxCh4.Visible = false;
+                    panelCh4Config.Visible = false;
                     panelCh5.Visible = false;
-                    textBoxCh5FwdPosIs.Visible = false;
-                    comboBoxCh5.Visible = false;
+                    panelCh5Config.Visible = false;
                     break;
                 case 4:
                     panelCh1.Visible = true;
-                    textBoxCh1FwdPosIs.Visible = true;
-                    comboBoxCh1.Visible = true;
+                    panelCh1Config.Visible = true;
                     panelCh2.Visible = true;
-                    textBoxCh2FwdPosIs.Visible = true;
-                    comboBoxCh2.Visible = true;
+                    panelCh2Config.Visible = true;
                     panelCh3.Visible = true;
-                    textBoxCh3FwdPosIs.Visible = true;
-                    comboBoxCh3.Visible = true;
+                    panelCh3Config.Visible = true;
                     panelCh4.Visible = true;
-                    textBoxCh4FwdPosIs.Visible = true;
-                    comboBoxCh4.Visible = true;
+                    panelCh4Config.Visible = true;
                     panelCh5.Visible = false;
-                    textBoxCh5FwdPosIs.Visible = false;
-                    comboBoxCh5.Visible = false;
+                    panelCh5Config.Visible = false;
                     break;
                 case 5:
                     panelCh1.Visible = true;
-                    textBoxCh1FwdPosIs.Visible = true;
-                    comboBoxCh1.Visible = true;
+                    panelCh1Config.Visible = true;
                     panelCh2.Visible = true;
-                    textBoxCh2FwdPosIs.Visible = true;
-                    comboBoxCh2.Visible = true;
+                    panelCh2Config.Visible = true;
                     panelCh3.Visible = true;
-                    textBoxCh3FwdPosIs.Visible = true;
-                    comboBoxCh3.Visible = true;
+                    panelCh3Config.Visible = true;
                     panelCh4.Visible = true;
-                    textBoxCh4FwdPosIs.Visible = true;
-                    comboBoxCh4.Visible = true;
+                    panelCh4Config.Visible = true;
                     panelCh5.Visible = true;
-                    textBoxCh5FwdPosIs.Visible = true;
-                    comboBoxCh5.Visible = true;
+                    panelCh5Config.Visible = true;
                     break;
                 default:
-                    panelCh1.Visible = false;
-                    textBoxCh1FwdPosIs.Visible = false;
-                    comboBoxCh1.Visible = false;
+                    panelCh1.Visible = true;
+                    panelCh1Config.Visible = false;
                     panelCh2.Visible = false;
-                    textBoxCh2FwdPosIs.Visible = false;
-                    comboBoxCh2.Visible = false;
+                    panelCh2Config.Visible = false;
                     panelCh3.Visible = false;
-                    textBoxCh3FwdPosIs.Visible = false;
-                    comboBoxCh3.Visible = false;
+                    panelCh3Config.Visible = false;
                     panelCh4.Visible = false;
-                    textBoxCh4FwdPosIs.Visible = false;
-                    comboBoxCh4.Visible = false;
+                    panelCh4Config.Visible = false;
                     panelCh5.Visible = false;
-                    textBoxCh5FwdPosIs.Visible = false;
-                    comboBoxCh5.Visible = false;
+                    panelCh5Config.Visible = false;
                     break;
 
             }
@@ -275,11 +246,30 @@ namespace Arduino_Shutter_Control
         
         
         //Timer Event
-        void SetTimer()
+        void SetTimers()
         {
-            readDataTimer.Interval = 200; // faster than this causes communication issues
+            readDataTimer.Interval = 200; 
             readDataTimer.Tick += OnTimerTick;
             readDataTimer.Enabled = true;
+            
+            //Return Timers    
+            ChannelReturnTimer = new System.Windows.Forms.Timer[MaxChannelsAvaialble];
+            for (var i=0;i<MaxChannelsAvaialble;i++)
+            {
+                ChannelReturnTimer[i] = new System.Windows.Forms.Timer();
+                ChannelReturnTimer[i].Enabled = true;
+                ChannelReturnTimer[i].Tick += OnReturnTimerTick;
+                ChannelReturnTimer[i].Tag = i;
+                try //Timer preset cannot be zero
+                {
+                    ChannelReturnTimer[i].Interval = (int)SystemConfig.TimerPreset[i];
+                }
+                catch (Exception ex)
+                {
+                    ChannelReturnTimer[i].Interval = 1;
+                }
+                ChannelReturnTimer[i].Stop();
+            }
         }
 
         void OnTimerTick(object source, EventArgs e)
@@ -291,9 +281,24 @@ namespace Arduino_Shutter_Control
 
                 //Update object visibility
                 UpdateScreenAnimation();
-
             }
             ArduinoControl.SendingMsg = false;
+        }
+
+        void OnReturnTimerTick (object source, EventArgs e)
+        {
+            var timer = (System.Windows.Forms.Timer)source;
+
+            if (!SystemConfig.TimerTriggerPosition[Convert.ToInt16(timer.Tag)])
+            {
+                ArduinoControl.RunMotor(Convert.ToInt16(timer.Tag), true, SerialMsgJustSent);
+            }
+            else
+            {
+                ArduinoControl.RunMotor(Convert.ToInt16(timer.Tag), false, SerialMsgJustSent);
+            }
+            ChannelReturnTimer[Convert.ToInt16(timer.Tag)].Stop();
+
         }
 
 
@@ -332,11 +337,13 @@ namespace Arduino_Shutter_Control
                         {
                             buttonIN.BackColor = Color.Green;
                             buttonIN.ForeColor = Color.White;
+                            ArduinoControl.MotorFeedback[i].InPosition = true;
                         }
                         else
                         {
                             buttonIN.BackColor = Color.Silver;
                             buttonIN.ForeColor = Color.Black;
+                            ArduinoControl.MotorFeedback[i].InPosition = false;
                         }
 
                         //OUT Feedback
@@ -345,11 +352,13 @@ namespace Arduino_Shutter_Control
                         {
                             buttonOUT.BackColor = Color.Green;
                             buttonOUT.ForeColor = Color.White;
+                            ArduinoControl.MotorFeedback[i].OutPosition = true;
                         }
                         else
                         {
                             buttonOUT.BackColor = Color.Silver;
                             buttonOUT.ForeColor = Color.Black;
+                            ArduinoControl.MotorFeedback[i].OutPosition = false;
                         }
 
                         //IN CMD 
@@ -385,11 +394,13 @@ namespace Arduino_Shutter_Control
                         {
                             buttonIN.BackColor = Color.Green;
                             buttonIN.ForeColor = Color.White;
+                            ArduinoControl.MotorFeedback[i].InPosition = true;
                         }
                         else
                         {
                             buttonIN.BackColor = Color.Silver;
                             buttonIN.ForeColor = Color.Black;
+                            ArduinoControl.MotorFeedback[i].InPosition = false;
                         }
 
                         //OUT Feedback
@@ -398,11 +409,13 @@ namespace Arduino_Shutter_Control
                         {
                             buttonOUT.BackColor = Color.Green;
                             buttonOUT.ForeColor = Color.White;
+                            ArduinoControl.MotorFeedback[i].OutPosition = true;
                         }
                         else
                         {
                             buttonOUT.BackColor = Color.Silver;
                             buttonOUT.ForeColor = Color.Black;
+                            ArduinoControl.MotorFeedback[i].OutPosition = false;
                         }
 
                         //IN CMD 
@@ -429,6 +442,18 @@ namespace Arduino_Shutter_Control
                         {
                             buttonOUTCmd.BackColor = Color.Silver;
                             buttonOUTCmd.ForeColor = Color.Black;
+                        }
+                    }
+
+                    if (SystemConfig.Enable_AutoRun_Timer[i]) // if auto return timer is enabled then check if we can start timer
+                    {
+                        if ((SystemConfig.TimerTriggerPosition[i] && ArduinoControl.MotorFeedback[i].InPosition) || (!SystemConfig.TimerTriggerPosition[i] && ArduinoControl.MotorFeedback[i].OutPosition)) // Start timer condition
+                        {
+                            if (!ChannelReturnTimer[i].Enabled) // Start the timer if it is not running
+                            {
+                                ChannelReturnTimer[i].Interval = (int)SystemConfig.TimerPreset[i]*1000;
+                                ChannelReturnTimer[i].Start();
+                            }
                         }
                     }
                 }
@@ -474,24 +499,59 @@ namespace Arduino_Shutter_Control
             // Number of channels 
             NumChanneslConfigured.Value = SystemConfig.NumberChannelsConfigured;
 
-            //Channel Names
+            //Channel Data
             var i = 1;
             for (i = 1; i <= NumberChannelsUsed; i++)
             {
                 try
                 {
+                    // Channel Names
                     var panelChannelName = "panelCh" + i.ToString();
                     var textBoxName = "M" + i.ToString() + "Name";
 
+                    //Channel Fwd Is IN/OUT
                     var panel = Controls[panelChannelName];
                     panel.Controls[textBoxName].Text = SystemConfig.ChannelName[i];
 
                     var panelSystem = "panelSystem";
                     var panelConfig = "panelConfig";
+                    var panelChConfig = "panelCh" + i.ToString() + "Config";
                     var comboBoxName = "comboBoxCh" + i.ToString();
                     panel = Controls[panelSystem];
                     var panel2 = panel.Controls[panelConfig];
+                    panel2 = panel2.Controls[panelChConfig];
                     if (SystemConfig.FwdIsIN[i])
+                    {
+                        panel2.Controls[comboBoxName].Text = "IN";
+                    }
+                    else
+                    {
+                        panel2.Controls[comboBoxName].Text = "OUT";
+                    }
+
+                    //Channel Timer Enabled
+                    var checkBoxName = "checkBoxCh" + i.ToString() + "EnableTimer";
+                    var checkBox = (CheckBox)panel2.Controls[checkBoxName];
+                    if (SystemConfig.Enable_AutoRun_Timer[i])
+                    {
+                        checkBox.Checked = true;
+                    }
+                    else
+                    {
+                        checkBox.Checked = false;
+                    }
+
+                    //Channel Timer Preset
+
+                    var numericInputName = "numericUpDownCh" + i.ToString() +"TimerPreset";
+                    var numericInput = (NumericUpDown)panel2.Controls[numericInputName];
+                    numericInput.Value = SystemConfig.TimerPreset[i];
+
+
+                    // Trigger On
+                    comboBoxName = "comboBoxCh" + i.ToString() + "ReturnPositionTrigger";
+                    panel = Controls[panelSystem];
+                    if (SystemConfig.TimerTriggerPosition[i])
                     {
                         panel2.Controls[comboBoxName].Text = "IN";
                     }
@@ -579,7 +639,7 @@ namespace Arduino_Shutter_Control
         {
             if (result)
             {
-                TextBoxConfigStatus.Text = "Configuration Saved - " + System.DateTime.UtcNow.ToShortDateString() + " " + System.DateTime.UtcNow.ToShortTimeString();
+                TextBoxConfigStatus.Text = "Last Saved - " + System.DateTime.UtcNow.ToShortDateString() + " " + System.DateTime.UtcNow.ToShortTimeString();
             }
             else
             {
@@ -596,8 +656,8 @@ namespace Arduino_Shutter_Control
             TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
         }
 
-        //ComboBox Event Handler
-        private void comboBoxCh_SelectedIndexChanged(object sender, EventArgs e)
+        //ComboBox FWD is IN Event Handler
+        private void comboBoxChFwdIsIn_SelectedIndexChanged(object sender, EventArgs e)
         {
             var comboBox = (ComboBox)sender;
             var comboBoxName = comboBox.Name;
@@ -614,6 +674,8 @@ namespace Arduino_Shutter_Control
             TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
         }
 
+
+        // Motor Name Changed Event Handler
         private void MotorName_TextChanged(object sender, EventArgs e)
         {
             var textBox = (TextBox)sender;
@@ -622,5 +684,47 @@ namespace Arduino_Shutter_Control
             SystemConfig.ChannelName[Convert.ToInt32(channelString)] = textBox.Text;
             TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
         }
+
+
+        //Enable Timer Checkbox Event Handler
+        private void checkBoxChEnableTimer_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkBox = (CheckBox)sender;
+            var checkBoxName = checkBox.Name;
+            var channelString = checkBoxName.Substring("checkBoxCh".Length,checkBoxName.IndexOf("EnableTimer")-"checkBoxCh".Length);
+            SystemConfig.Enable_AutoRun_Timer[Convert.ToInt32(channelString)] = checkBox.Checked;
+            TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
+        }
+
+        //Timer Preset Numeric Input Event Handler
+        private void numericUpDownChTimerPreset_ValueChanged(object sender, EventArgs e)
+        {
+            var numericInput= (NumericUpDown)sender;
+            var numericInputName = numericInput.Name;
+            var channelString = numericInputName.Substring("numericUpDownCh".Length, numericInputName.IndexOf("TimerPreset") - "numericUpDownCh".Length); 
+            SystemConfig.TimerPreset[Convert.ToInt32(channelString)] = numericInput.Value;
+            TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
+        }
+
+        //Timer Trigger on In/OUT Event Handler
+        private void comboBoxChReturnPositionTrigger_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = (ComboBox)sender;
+            var comboBoxName = comboBox.Name;
+            var channelString = comboBoxName.Substring("comboBoxCh".Length, comboBoxName.IndexOf("ReturnPositionTrigger") - "comboBoxCh".Length);
+            var value = comboBox.SelectedItem.ToString();
+            if (value == "IN")
+            {
+                SystemConfig.TimerTriggerPosition[Convert.ToInt32(channelString)] = true;
+            }
+            else
+            {
+                SystemConfig.TimerTriggerPosition[Convert.ToInt32(channelString)] = false;
+            }
+            TextBoxConfigurationStatusUpdate(SaveConfiguration(ConfigFilePath));
+        }
+
+        
+
     }
 }

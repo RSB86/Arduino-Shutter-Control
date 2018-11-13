@@ -39,21 +39,51 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.panelSystem = new System.Windows.Forms.Panel();
             this.panelConfig = new System.Windows.Forms.Panel();
-            this.comboBoxCh5 = new System.Windows.Forms.ComboBox();
+            this.panelCh5Config = new System.Windows.Forms.Panel();
             this.textBoxCh5FwdPosIs = new System.Windows.Forms.TextBox();
-            this.comboBoxCh4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCh5ReturnPositionTrigger = new System.Windows.Forms.ComboBox();
+            this.comboBoxCh5 = new System.Windows.Forms.ComboBox();
+            this.numericUpDownCh5TimerPreset = new System.Windows.Forms.NumericUpDown();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.checkBoxCh5EnableTimer = new System.Windows.Forms.CheckBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.panelCh4Config = new System.Windows.Forms.Panel();
+            this.comboBoxCh4ReturnPositionTrigger = new System.Windows.Forms.ComboBox();
+            this.numericUpDownCh4TimerPreset = new System.Windows.Forms.NumericUpDown();
             this.textBoxCh4FwdPosIs = new System.Windows.Forms.TextBox();
-            this.comboBoxCh3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCh4 = new System.Windows.Forms.ComboBox();
+            this.checkBoxCh4EnableTimer = new System.Windows.Forms.CheckBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.panelCh3Config = new System.Windows.Forms.Panel();
+            this.comboBoxCh3ReturnPositionTrigger = new System.Windows.Forms.ComboBox();
+            this.numericUpDownCh3TimerPreset = new System.Windows.Forms.NumericUpDown();
             this.textBoxCh3FwdPosIs = new System.Windows.Forms.TextBox();
-            this.comboBoxCh2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCh3 = new System.Windows.Forms.ComboBox();
+            this.checkBoxCh3EnableTimer = new System.Windows.Forms.CheckBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.panelCh2Config = new System.Windows.Forms.Panel();
+            this.comboBoxCh2ReturnPositionTrigger = new System.Windows.Forms.ComboBox();
+            this.numericUpDownCh2TimerPreset = new System.Windows.Forms.NumericUpDown();
             this.textBoxCh2FwdPosIs = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.TextBoxConfigStatus = new System.Windows.Forms.TextBox();
-            this.comboBoxCh1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCh2 = new System.Windows.Forms.ComboBox();
+            this.checkBoxCh2EnableTimer = new System.Windows.Forms.CheckBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.panelCh1Config = new System.Windows.Forms.Panel();
+            this.comboBoxCh1ReturnPositionTrigger = new System.Windows.Forms.ComboBox();
+            this.numericUpDownCh1TimerPreset = new System.Windows.Forms.NumericUpDown();
             this.textBoxCh1FwdPosIs = new System.Windows.Forms.TextBox();
+            this.comboBoxCh1 = new System.Windows.Forms.ComboBox();
+            this.checkBoxCh1EnableTimer = new System.Windows.Forms.CheckBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.TextBoxConfigStatus = new System.Windows.Forms.TextBox();
             this.NumChanneslConfigured = new System.Windows.Forms.NumericUpDown();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
             this.panelCh1 = new System.Windows.Forms.Panel();
             this.panelCh1Fdbk = new System.Windows.Forms.Panel();
             this.M1FdbkOUT = new Arduino_Shutter_Control.RoundButton();
@@ -110,6 +140,16 @@
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.panelSystem.SuspendLayout();
             this.panelConfig.SuspendLayout();
+            this.panelCh5Config.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh5TimerPreset)).BeginInit();
+            this.panelCh4Config.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh4TimerPreset)).BeginInit();
+            this.panelCh3Config.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh3TimerPreset)).BeginInit();
+            this.panelCh2Config.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh2TimerPreset)).BeginInit();
+            this.panelCh1Config.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh1TimerPreset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumChanneslConfigured)).BeginInit();
             this.panelCh1.SuspendLayout();
             this.panelCh1Fdbk.SuspendLayout();
@@ -134,7 +174,7 @@
             this.listViewSerialPorts.Location = new System.Drawing.Point(10, 40);
             this.listViewSerialPorts.Margin = new System.Windows.Forms.Padding(2);
             this.listViewSerialPorts.Name = "listViewSerialPorts";
-            this.listViewSerialPorts.Size = new System.Drawing.Size(324, 106);
+            this.listViewSerialPorts.Size = new System.Drawing.Size(324, 70);
             this.listViewSerialPorts.TabIndex = 1;
             this.listViewSerialPorts.UseCompatibleStateImageBehavior = false;
             this.listViewSerialPorts.SelectedIndexChanged += new System.EventHandler(this.ListViewSerialPorts_SelectedIndexChanged);
@@ -142,7 +182,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(10, 223);
+            this.textBox1.Location = new System.Drawing.Point(10, 187);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(324, 22);
@@ -152,7 +192,7 @@
             // 
             this.buttonRefresh.BackColor = System.Drawing.Color.Silver;
             this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRefresh.Location = new System.Drawing.Point(10, 152);
+            this.buttonRefresh.Location = new System.Drawing.Point(10, 116);
             this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(95, 45);
@@ -165,7 +205,7 @@
             // 
             this.buttonConnect.BackColor = System.Drawing.Color.Silver;
             this.buttonConnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConnect.Location = new System.Drawing.Point(125, 151);
+            this.buttonConnect.Location = new System.Drawing.Point(125, 115);
             this.buttonConnect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(95, 45);
@@ -204,7 +244,7 @@
             // 
             this.buttonDisconnect.BackColor = System.Drawing.Color.Silver;
             this.buttonDisconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDisconnect.Location = new System.Drawing.Point(239, 151);
+            this.buttonDisconnect.Location = new System.Drawing.Point(239, 115);
             this.buttonDisconnect.Margin = new System.Windows.Forms.Padding(2);
             this.buttonDisconnect.Name = "buttonDisconnect";
             this.buttonDisconnect.Size = new System.Drawing.Size(95, 45);
@@ -232,7 +272,7 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(12, 199);
+            this.textBox3.Location = new System.Drawing.Point(12, 163);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(324, 19);
             this.textBox3.TabIndex = 12;
@@ -250,45 +290,43 @@
             this.panelSystem.Controls.Add(this.buttonRefresh);
             this.panelSystem.Controls.Add(this.buttonConnect);
             this.panelSystem.Controls.Add(this.buttonDisconnect);
-            this.panelSystem.Location = new System.Drawing.Point(14, 71);
+            this.panelSystem.Location = new System.Drawing.Point(14, 6);
             this.panelSystem.Name = "panelSystem";
-            this.panelSystem.Size = new System.Drawing.Size(344, 644);
+            this.panelSystem.Size = new System.Drawing.Size(344, 709);
             this.panelSystem.TabIndex = 13;
             // 
             // panelConfig
             // 
             this.panelConfig.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelConfig.Controls.Add(this.comboBoxCh5);
-            this.panelConfig.Controls.Add(this.textBoxCh5FwdPosIs);
-            this.panelConfig.Controls.Add(this.comboBoxCh4);
-            this.panelConfig.Controls.Add(this.textBoxCh4FwdPosIs);
-            this.panelConfig.Controls.Add(this.comboBoxCh3);
-            this.panelConfig.Controls.Add(this.textBoxCh3FwdPosIs);
-            this.panelConfig.Controls.Add(this.comboBoxCh2);
-            this.panelConfig.Controls.Add(this.textBoxCh2FwdPosIs);
-            this.panelConfig.Controls.Add(this.textBox17);
+            this.panelConfig.Controls.Add(this.panelCh5Config);
+            this.panelConfig.Controls.Add(this.panelCh4Config);
+            this.panelConfig.Controls.Add(this.panelCh3Config);
+            this.panelConfig.Controls.Add(this.panelCh2Config);
+            this.panelConfig.Controls.Add(this.panelCh1Config);
             this.panelConfig.Controls.Add(this.TextBoxConfigStatus);
-            this.panelConfig.Controls.Add(this.comboBoxCh1);
-            this.panelConfig.Controls.Add(this.textBoxCh1FwdPosIs);
             this.panelConfig.Controls.Add(this.NumChanneslConfigured);
             this.panelConfig.Controls.Add(this.textBox25);
             this.panelConfig.Controls.Add(this.textBox24);
-            this.panelConfig.Location = new System.Drawing.Point(12, 252);
+            this.panelConfig.Controls.Add(this.textBox17);
+            this.panelConfig.Location = new System.Drawing.Point(12, 214);
             this.panelConfig.Name = "panelConfig";
-            this.panelConfig.Size = new System.Drawing.Size(322, 383);
+            this.panelConfig.Size = new System.Drawing.Size(322, 488);
             this.panelConfig.TabIndex = 13;
             // 
-            // comboBoxCh5
+            // panelCh5Config
             // 
-            this.comboBoxCh5.FormattingEnabled = true;
-            this.comboBoxCh5.Items.AddRange(new object[] {
-            "IN",
-            "OUT"});
-            this.comboBoxCh5.Location = new System.Drawing.Point(151, 235);
-            this.comboBoxCh5.Name = "comboBoxCh5";
-            this.comboBoxCh5.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCh5.TabIndex = 28;
-            this.comboBoxCh5.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            this.panelCh5Config.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCh5Config.Controls.Add(this.textBoxCh5FwdPosIs);
+            this.panelCh5Config.Controls.Add(this.comboBoxCh5ReturnPositionTrigger);
+            this.panelCh5Config.Controls.Add(this.comboBoxCh5);
+            this.panelCh5Config.Controls.Add(this.numericUpDownCh5TimerPreset);
+            this.panelCh5Config.Controls.Add(this.textBox32);
+            this.panelCh5Config.Controls.Add(this.checkBoxCh5EnableTimer);
+            this.panelCh5Config.Controls.Add(this.textBox31);
+            this.panelCh5Config.Location = new System.Drawing.Point(3, 379);
+            this.panelCh5Config.Name = "panelCh5Config";
+            this.panelCh5Config.Size = new System.Drawing.Size(312, 80);
+            this.panelCh5Config.TabIndex = 58;
             // 
             // textBoxCh5FwdPosIs
             // 
@@ -296,24 +334,119 @@
             this.textBoxCh5FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCh5FwdPosIs.Enabled = false;
             this.textBoxCh5FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCh5FwdPosIs.Location = new System.Drawing.Point(17, 235);
+            this.textBoxCh5FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh5FwdPosIs.Multiline = true;
             this.textBoxCh5FwdPosIs.Name = "textBoxCh5FwdPosIs";
             this.textBoxCh5FwdPosIs.Size = new System.Drawing.Size(128, 22);
             this.textBoxCh5FwdPosIs.TabIndex = 27;
             this.textBoxCh5FwdPosIs.Text = "Ch. 5 Fwd. Pos. is";
             // 
-            // comboBoxCh4
+            // comboBoxCh5ReturnPositionTrigger
             // 
-            this.comboBoxCh4.FormattingEnabled = true;
-            this.comboBoxCh4.Items.AddRange(new object[] {
+            this.comboBoxCh5ReturnPositionTrigger.FormattingEnabled = true;
+            this.comboBoxCh5ReturnPositionTrigger.Items.AddRange(new object[] {
             "IN",
             "OUT"});
-            this.comboBoxCh4.Location = new System.Drawing.Point(151, 208);
-            this.comboBoxCh4.Name = "comboBoxCh4";
-            this.comboBoxCh4.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCh4.TabIndex = 26;
-            this.comboBoxCh4.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            this.comboBoxCh5ReturnPositionTrigger.Location = new System.Drawing.Point(248, 51);
+            this.comboBoxCh5ReturnPositionTrigger.Name = "comboBoxCh5ReturnPositionTrigger";
+            this.comboBoxCh5ReturnPositionTrigger.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxCh5ReturnPositionTrigger.TabIndex = 55;
+            this.comboBoxCh5ReturnPositionTrigger.SelectedIndexChanged += new System.EventHandler(this.comboBoxChReturnPositionTrigger_SelectedIndexChanged);
+            // 
+            // comboBoxCh5
+            // 
+            this.comboBoxCh5.FormattingEnabled = true;
+            this.comboBoxCh5.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh5.Location = new System.Drawing.Point(154, 3);
+            this.comboBoxCh5.Name = "comboBoxCh5";
+            this.comboBoxCh5.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxCh5.TabIndex = 28;
+            this.comboBoxCh5.SelectedIndexChanged += new System.EventHandler(this.comboBoxChFwdIsIn_SelectedIndexChanged);
+            // 
+            // numericUpDownCh5TimerPreset
+            // 
+            this.numericUpDownCh5TimerPreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCh5TimerPreset.Location = new System.Drawing.Point(108, 48);
+            this.numericUpDownCh5TimerPreset.Name = "numericUpDownCh5TimerPreset";
+            this.numericUpDownCh5TimerPreset.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownCh5TimerPreset.TabIndex = 54;
+            this.numericUpDownCh5TimerPreset.ValueChanged += new System.EventHandler(this.numericUpDownChTimerPreset_ValueChanged);
+            // 
+            // textBox32
+            // 
+            this.textBox32.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox32.Enabled = false;
+            this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox32.Location = new System.Drawing.Point(170, 50);
+            this.textBox32.Multiline = true;
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(91, 22);
+            this.textBox32.TabIndex = 57;
+            this.textBox32.Text = "sec. at pos.";
+            // 
+            // checkBoxCh5EnableTimer
+            // 
+            this.checkBoxCh5EnableTimer.AutoSize = true;
+            this.checkBoxCh5EnableTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCh5EnableTimer.Location = new System.Drawing.Point(20, 26);
+            this.checkBoxCh5EnableTimer.Name = "checkBoxCh5EnableTimer";
+            this.checkBoxCh5EnableTimer.Size = new System.Drawing.Size(235, 22);
+            this.checkBoxCh5EnableTimer.TabIndex = 53;
+            this.checkBoxCh5EnableTimer.Text = "Ch. 5 Enable Auto Return Timer";
+            this.checkBoxCh5EnableTimer.UseVisualStyleBackColor = true;
+            this.checkBoxCh5EnableTimer.CheckedChanged += new System.EventHandler(this.checkBoxChEnableTimer_CheckedChanged);
+            // 
+            // textBox31
+            // 
+            this.textBox31.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox31.Enabled = false;
+            this.textBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox31.Location = new System.Drawing.Point(29, 50);
+            this.textBox31.Multiline = true;
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(84, 22);
+            this.textBox31.TabIndex = 56;
+            this.textBox31.Text = "Return after";
+            // 
+            // panelCh4Config
+            // 
+            this.panelCh4Config.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCh4Config.Controls.Add(this.comboBoxCh4ReturnPositionTrigger);
+            this.panelCh4Config.Controls.Add(this.numericUpDownCh4TimerPreset);
+            this.panelCh4Config.Controls.Add(this.textBoxCh4FwdPosIs);
+            this.panelCh4Config.Controls.Add(this.comboBoxCh4);
+            this.panelCh4Config.Controls.Add(this.checkBoxCh4EnableTimer);
+            this.panelCh4Config.Controls.Add(this.textBox30);
+            this.panelCh4Config.Controls.Add(this.textBox29);
+            this.panelCh4Config.Location = new System.Drawing.Point(3, 295);
+            this.panelCh4Config.Name = "panelCh4Config";
+            this.panelCh4Config.Size = new System.Drawing.Size(312, 80);
+            this.panelCh4Config.TabIndex = 52;
+            // 
+            // comboBoxCh4ReturnPositionTrigger
+            // 
+            this.comboBoxCh4ReturnPositionTrigger.FormattingEnabled = true;
+            this.comboBoxCh4ReturnPositionTrigger.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh4ReturnPositionTrigger.Location = new System.Drawing.Point(248, 51);
+            this.comboBoxCh4ReturnPositionTrigger.Name = "comboBoxCh4ReturnPositionTrigger";
+            this.comboBoxCh4ReturnPositionTrigger.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxCh4ReturnPositionTrigger.TabIndex = 46;
+            this.comboBoxCh4ReturnPositionTrigger.SelectedIndexChanged += new System.EventHandler(this.comboBoxChReturnPositionTrigger_SelectedIndexChanged);
+            // 
+            // numericUpDownCh4TimerPreset
+            // 
+            this.numericUpDownCh4TimerPreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCh4TimerPreset.Location = new System.Drawing.Point(108, 48);
+            this.numericUpDownCh4TimerPreset.Name = "numericUpDownCh4TimerPreset";
+            this.numericUpDownCh4TimerPreset.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownCh4TimerPreset.TabIndex = 45;
+            this.numericUpDownCh4TimerPreset.ValueChanged += new System.EventHandler(this.numericUpDownChTimerPreset_ValueChanged);
             // 
             // textBoxCh4FwdPosIs
             // 
@@ -321,24 +454,98 @@
             this.textBoxCh4FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCh4FwdPosIs.Enabled = false;
             this.textBoxCh4FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCh4FwdPosIs.Location = new System.Drawing.Point(17, 208);
+            this.textBoxCh4FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh4FwdPosIs.Multiline = true;
             this.textBoxCh4FwdPosIs.Name = "textBoxCh4FwdPosIs";
             this.textBoxCh4FwdPosIs.Size = new System.Drawing.Size(128, 22);
             this.textBoxCh4FwdPosIs.TabIndex = 25;
             this.textBoxCh4FwdPosIs.Text = "Ch. 4 Fwd. Pos. is";
             // 
-            // comboBoxCh3
+            // comboBoxCh4
             // 
-            this.comboBoxCh3.FormattingEnabled = true;
-            this.comboBoxCh3.Items.AddRange(new object[] {
+            this.comboBoxCh4.FormattingEnabled = true;
+            this.comboBoxCh4.Items.AddRange(new object[] {
             "IN",
             "OUT"});
-            this.comboBoxCh3.Location = new System.Drawing.Point(151, 181);
-            this.comboBoxCh3.Name = "comboBoxCh3";
-            this.comboBoxCh3.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCh3.TabIndex = 24;
-            this.comboBoxCh3.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            this.comboBoxCh4.Location = new System.Drawing.Point(154, 3);
+            this.comboBoxCh4.Name = "comboBoxCh4";
+            this.comboBoxCh4.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxCh4.TabIndex = 26;
+            this.comboBoxCh4.SelectedIndexChanged += new System.EventHandler(this.comboBoxChFwdIsIn_SelectedIndexChanged);
+            // 
+            // checkBoxCh4EnableTimer
+            // 
+            this.checkBoxCh4EnableTimer.AutoSize = true;
+            this.checkBoxCh4EnableTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCh4EnableTimer.Location = new System.Drawing.Point(20, 26);
+            this.checkBoxCh4EnableTimer.Name = "checkBoxCh4EnableTimer";
+            this.checkBoxCh4EnableTimer.Size = new System.Drawing.Size(235, 22);
+            this.checkBoxCh4EnableTimer.TabIndex = 44;
+            this.checkBoxCh4EnableTimer.Text = "Ch. 4 Enable Auto Return Timer";
+            this.checkBoxCh4EnableTimer.UseVisualStyleBackColor = true;
+            this.checkBoxCh4EnableTimer.CheckedChanged += new System.EventHandler(this.checkBoxChEnableTimer_CheckedChanged);
+            // 
+            // textBox30
+            // 
+            this.textBox30.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox30.Enabled = false;
+            this.textBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox30.Location = new System.Drawing.Point(29, 50);
+            this.textBox30.Multiline = true;
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(84, 22);
+            this.textBox30.TabIndex = 47;
+            this.textBox30.Text = "Return after";
+            // 
+            // textBox29
+            // 
+            this.textBox29.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox29.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox29.Enabled = false;
+            this.textBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox29.Location = new System.Drawing.Point(170, 50);
+            this.textBox29.Multiline = true;
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(91, 22);
+            this.textBox29.TabIndex = 48;
+            this.textBox29.Text = "sec. at pos.";
+            // 
+            // panelCh3Config
+            // 
+            this.panelCh3Config.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCh3Config.Controls.Add(this.comboBoxCh3ReturnPositionTrigger);
+            this.panelCh3Config.Controls.Add(this.numericUpDownCh3TimerPreset);
+            this.panelCh3Config.Controls.Add(this.textBoxCh3FwdPosIs);
+            this.panelCh3Config.Controls.Add(this.comboBoxCh3);
+            this.panelCh3Config.Controls.Add(this.checkBoxCh3EnableTimer);
+            this.panelCh3Config.Controls.Add(this.textBox28);
+            this.panelCh3Config.Controls.Add(this.textBox27);
+            this.panelCh3Config.Location = new System.Drawing.Point(3, 212);
+            this.panelCh3Config.Name = "panelCh3Config";
+            this.panelCh3Config.Size = new System.Drawing.Size(312, 80);
+            this.panelCh3Config.TabIndex = 51;
+            // 
+            // comboBoxCh3ReturnPositionTrigger
+            // 
+            this.comboBoxCh3ReturnPositionTrigger.FormattingEnabled = true;
+            this.comboBoxCh3ReturnPositionTrigger.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh3ReturnPositionTrigger.Location = new System.Drawing.Point(248, 51);
+            this.comboBoxCh3ReturnPositionTrigger.Name = "comboBoxCh3ReturnPositionTrigger";
+            this.comboBoxCh3ReturnPositionTrigger.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxCh3ReturnPositionTrigger.TabIndex = 41;
+            this.comboBoxCh3ReturnPositionTrigger.SelectedIndexChanged += new System.EventHandler(this.comboBoxChReturnPositionTrigger_SelectedIndexChanged);
+            // 
+            // numericUpDownCh3TimerPreset
+            // 
+            this.numericUpDownCh3TimerPreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCh3TimerPreset.Location = new System.Drawing.Point(108, 48);
+            this.numericUpDownCh3TimerPreset.Name = "numericUpDownCh3TimerPreset";
+            this.numericUpDownCh3TimerPreset.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownCh3TimerPreset.TabIndex = 40;
+            this.numericUpDownCh3TimerPreset.ValueChanged += new System.EventHandler(this.numericUpDownChTimerPreset_ValueChanged);
             // 
             // textBoxCh3FwdPosIs
             // 
@@ -346,24 +553,98 @@
             this.textBoxCh3FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCh3FwdPosIs.Enabled = false;
             this.textBoxCh3FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCh3FwdPosIs.Location = new System.Drawing.Point(17, 181);
+            this.textBoxCh3FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh3FwdPosIs.Multiline = true;
             this.textBoxCh3FwdPosIs.Name = "textBoxCh3FwdPosIs";
             this.textBoxCh3FwdPosIs.Size = new System.Drawing.Size(128, 22);
             this.textBoxCh3FwdPosIs.TabIndex = 23;
             this.textBoxCh3FwdPosIs.Text = "Ch. 3 Fwd. Pos. is";
             // 
-            // comboBoxCh2
+            // comboBoxCh3
             // 
-            this.comboBoxCh2.FormattingEnabled = true;
-            this.comboBoxCh2.Items.AddRange(new object[] {
+            this.comboBoxCh3.FormattingEnabled = true;
+            this.comboBoxCh3.Items.AddRange(new object[] {
             "IN",
             "OUT"});
-            this.comboBoxCh2.Location = new System.Drawing.Point(151, 154);
-            this.comboBoxCh2.Name = "comboBoxCh2";
-            this.comboBoxCh2.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCh2.TabIndex = 22;
-            this.comboBoxCh2.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            this.comboBoxCh3.Location = new System.Drawing.Point(154, 4);
+            this.comboBoxCh3.Name = "comboBoxCh3";
+            this.comboBoxCh3.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxCh3.TabIndex = 24;
+            this.comboBoxCh3.SelectedIndexChanged += new System.EventHandler(this.comboBoxChFwdIsIn_SelectedIndexChanged);
+            // 
+            // checkBoxCh3EnableTimer
+            // 
+            this.checkBoxCh3EnableTimer.AutoSize = true;
+            this.checkBoxCh3EnableTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCh3EnableTimer.Location = new System.Drawing.Point(20, 26);
+            this.checkBoxCh3EnableTimer.Name = "checkBoxCh3EnableTimer";
+            this.checkBoxCh3EnableTimer.Size = new System.Drawing.Size(235, 22);
+            this.checkBoxCh3EnableTimer.TabIndex = 39;
+            this.checkBoxCh3EnableTimer.Text = "Ch. 3 Enable Auto Return Timer";
+            this.checkBoxCh3EnableTimer.UseVisualStyleBackColor = true;
+            this.checkBoxCh3EnableTimer.CheckedChanged += new System.EventHandler(this.checkBoxChEnableTimer_CheckedChanged);
+            // 
+            // textBox28
+            // 
+            this.textBox28.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox28.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox28.Enabled = false;
+            this.textBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox28.Location = new System.Drawing.Point(29, 50);
+            this.textBox28.Multiline = true;
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(84, 22);
+            this.textBox28.TabIndex = 42;
+            this.textBox28.Text = "Return after";
+            // 
+            // textBox27
+            // 
+            this.textBox27.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox27.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox27.Enabled = false;
+            this.textBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox27.Location = new System.Drawing.Point(170, 50);
+            this.textBox27.Multiline = true;
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(91, 22);
+            this.textBox27.TabIndex = 43;
+            this.textBox27.Text = "sec. at pos.";
+            // 
+            // panelCh2Config
+            // 
+            this.panelCh2Config.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCh2Config.Controls.Add(this.comboBoxCh2ReturnPositionTrigger);
+            this.panelCh2Config.Controls.Add(this.numericUpDownCh2TimerPreset);
+            this.panelCh2Config.Controls.Add(this.textBoxCh2FwdPosIs);
+            this.panelCh2Config.Controls.Add(this.comboBoxCh2);
+            this.panelCh2Config.Controls.Add(this.checkBoxCh2EnableTimer);
+            this.panelCh2Config.Controls.Add(this.textBox26);
+            this.panelCh2Config.Controls.Add(this.textBox21);
+            this.panelCh2Config.Location = new System.Drawing.Point(3, 132);
+            this.panelCh2Config.Name = "panelCh2Config";
+            this.panelCh2Config.Size = new System.Drawing.Size(312, 80);
+            this.panelCh2Config.TabIndex = 50;
+            // 
+            // comboBoxCh2ReturnPositionTrigger
+            // 
+            this.comboBoxCh2ReturnPositionTrigger.FormattingEnabled = true;
+            this.comboBoxCh2ReturnPositionTrigger.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh2ReturnPositionTrigger.Location = new System.Drawing.Point(248, 51);
+            this.comboBoxCh2ReturnPositionTrigger.Name = "comboBoxCh2ReturnPositionTrigger";
+            this.comboBoxCh2ReturnPositionTrigger.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxCh2ReturnPositionTrigger.TabIndex = 36;
+            this.comboBoxCh2ReturnPositionTrigger.SelectedIndexChanged += new System.EventHandler(this.comboBoxChReturnPositionTrigger_SelectedIndexChanged);
+            // 
+            // numericUpDownCh2TimerPreset
+            // 
+            this.numericUpDownCh2TimerPreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCh2TimerPreset.Location = new System.Drawing.Point(108, 48);
+            this.numericUpDownCh2TimerPreset.Name = "numericUpDownCh2TimerPreset";
+            this.numericUpDownCh2TimerPreset.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownCh2TimerPreset.TabIndex = 35;
+            this.numericUpDownCh2TimerPreset.ValueChanged += new System.EventHandler(this.numericUpDownChTimerPreset_ValueChanged);
             // 
             // textBoxCh2FwdPosIs
             // 
@@ -371,43 +652,98 @@
             this.textBoxCh2FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCh2FwdPosIs.Enabled = false;
             this.textBoxCh2FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCh2FwdPosIs.Location = new System.Drawing.Point(17, 154);
+            this.textBoxCh2FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh2FwdPosIs.Multiline = true;
             this.textBoxCh2FwdPosIs.Name = "textBoxCh2FwdPosIs";
             this.textBoxCh2FwdPosIs.Size = new System.Drawing.Size(128, 22);
             this.textBoxCh2FwdPosIs.TabIndex = 21;
             this.textBoxCh2FwdPosIs.Text = "Ch. 2 Fwd. Pos. is";
             // 
-            // textBox17
+            // comboBoxCh2
             // 
-            this.textBox17.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Enabled = false;
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(4, 333);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(324, 19);
-            this.textBox17.TabIndex = 20;
-            this.textBox17.Text = "Configuration Status";
-            // 
-            // TextBoxConfigStatus
-            // 
-            this.TextBoxConfigStatus.Location = new System.Drawing.Point(4, 354);
-            this.TextBoxConfigStatus.Name = "TextBoxConfigStatus";
-            this.TextBoxConfigStatus.Size = new System.Drawing.Size(311, 20);
-            this.TextBoxConfigStatus.TabIndex = 19;
-            // 
-            // comboBoxCh1
-            // 
-            this.comboBoxCh1.FormattingEnabled = true;
-            this.comboBoxCh1.Items.AddRange(new object[] {
+            this.comboBoxCh2.FormattingEnabled = true;
+            this.comboBoxCh2.Items.AddRange(new object[] {
             "IN",
             "OUT"});
-            this.comboBoxCh1.Location = new System.Drawing.Point(151, 70);
-            this.comboBoxCh1.Name = "comboBoxCh1";
-            this.comboBoxCh1.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCh1.TabIndex = 18;
-            this.comboBoxCh1.SelectedIndexChanged += new System.EventHandler(this.comboBoxCh_SelectedIndexChanged);
+            this.comboBoxCh2.Location = new System.Drawing.Point(154, 3);
+            this.comboBoxCh2.Name = "comboBoxCh2";
+            this.comboBoxCh2.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxCh2.TabIndex = 22;
+            this.comboBoxCh2.SelectedIndexChanged += new System.EventHandler(this.comboBoxChFwdIsIn_SelectedIndexChanged);
+            // 
+            // checkBoxCh2EnableTimer
+            // 
+            this.checkBoxCh2EnableTimer.AutoSize = true;
+            this.checkBoxCh2EnableTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCh2EnableTimer.Location = new System.Drawing.Point(20, 26);
+            this.checkBoxCh2EnableTimer.Name = "checkBoxCh2EnableTimer";
+            this.checkBoxCh2EnableTimer.Size = new System.Drawing.Size(235, 22);
+            this.checkBoxCh2EnableTimer.TabIndex = 34;
+            this.checkBoxCh2EnableTimer.Text = "Ch. 2 Enable Auto Return Timer";
+            this.checkBoxCh2EnableTimer.UseVisualStyleBackColor = true;
+            this.checkBoxCh2EnableTimer.CheckedChanged += new System.EventHandler(this.checkBoxChEnableTimer_CheckedChanged);
+            // 
+            // textBox26
+            // 
+            this.textBox26.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox26.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox26.Enabled = false;
+            this.textBox26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox26.Location = new System.Drawing.Point(29, 50);
+            this.textBox26.Multiline = true;
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(84, 22);
+            this.textBox26.TabIndex = 37;
+            this.textBox26.Text = "Return after";
+            // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox21.Enabled = false;
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.Location = new System.Drawing.Point(170, 50);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(91, 22);
+            this.textBox21.TabIndex = 38;
+            this.textBox21.Text = "sec. at pos.";
+            // 
+            // panelCh1Config
+            // 
+            this.panelCh1Config.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelCh1Config.Controls.Add(this.comboBoxCh1ReturnPositionTrigger);
+            this.panelCh1Config.Controls.Add(this.numericUpDownCh1TimerPreset);
+            this.panelCh1Config.Controls.Add(this.textBoxCh1FwdPosIs);
+            this.panelCh1Config.Controls.Add(this.comboBoxCh1);
+            this.panelCh1Config.Controls.Add(this.checkBoxCh1EnableTimer);
+            this.panelCh1Config.Controls.Add(this.textBox9);
+            this.panelCh1Config.Controls.Add(this.textBox13);
+            this.panelCh1Config.Location = new System.Drawing.Point(3, 50);
+            this.panelCh1Config.Name = "panelCh1Config";
+            this.panelCh1Config.Size = new System.Drawing.Size(312, 80);
+            this.panelCh1Config.TabIndex = 49;
+            // 
+            // comboBoxCh1ReturnPositionTrigger
+            // 
+            this.comboBoxCh1ReturnPositionTrigger.FormattingEnabled = true;
+            this.comboBoxCh1ReturnPositionTrigger.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh1ReturnPositionTrigger.Location = new System.Drawing.Point(248, 51);
+            this.comboBoxCh1ReturnPositionTrigger.Name = "comboBoxCh1ReturnPositionTrigger";
+            this.comboBoxCh1ReturnPositionTrigger.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxCh1ReturnPositionTrigger.TabIndex = 31;
+            this.comboBoxCh1ReturnPositionTrigger.SelectedIndexChanged += new System.EventHandler(this.comboBoxChReturnPositionTrigger_SelectedIndexChanged);
+            // 
+            // numericUpDownCh1TimerPreset
+            // 
+            this.numericUpDownCh1TimerPreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCh1TimerPreset.Location = new System.Drawing.Point(108, 48);
+            this.numericUpDownCh1TimerPreset.Name = "numericUpDownCh1TimerPreset";
+            this.numericUpDownCh1TimerPreset.Size = new System.Drawing.Size(57, 26);
+            this.numericUpDownCh1TimerPreset.TabIndex = 30;
+            this.numericUpDownCh1TimerPreset.ValueChanged += new System.EventHandler(this.numericUpDownChTimerPreset_ValueChanged);
             // 
             // textBoxCh1FwdPosIs
             // 
@@ -415,19 +751,76 @@
             this.textBoxCh1FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxCh1FwdPosIs.Enabled = false;
             this.textBoxCh1FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCh1FwdPosIs.Location = new System.Drawing.Point(17, 70);
+            this.textBoxCh1FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh1FwdPosIs.Multiline = true;
             this.textBoxCh1FwdPosIs.Name = "textBoxCh1FwdPosIs";
             this.textBoxCh1FwdPosIs.Size = new System.Drawing.Size(128, 22);
             this.textBoxCh1FwdPosIs.TabIndex = 17;
             this.textBoxCh1FwdPosIs.Text = "Ch. 1 Fwd. Pos. is";
             // 
+            // comboBoxCh1
+            // 
+            this.comboBoxCh1.FormattingEnabled = true;
+            this.comboBoxCh1.Items.AddRange(new object[] {
+            "IN",
+            "OUT"});
+            this.comboBoxCh1.Location = new System.Drawing.Point(154, 3);
+            this.comboBoxCh1.Name = "comboBoxCh1";
+            this.comboBoxCh1.Size = new System.Drawing.Size(141, 21);
+            this.comboBoxCh1.TabIndex = 18;
+            this.comboBoxCh1.SelectedIndexChanged += new System.EventHandler(this.comboBoxChFwdIsIn_SelectedIndexChanged);
+            // 
+            // checkBoxCh1EnableTimer
+            // 
+            this.checkBoxCh1EnableTimer.AutoSize = true;
+            this.checkBoxCh1EnableTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxCh1EnableTimer.Location = new System.Drawing.Point(20, 26);
+            this.checkBoxCh1EnableTimer.Name = "checkBoxCh1EnableTimer";
+            this.checkBoxCh1EnableTimer.Size = new System.Drawing.Size(235, 22);
+            this.checkBoxCh1EnableTimer.TabIndex = 29;
+            this.checkBoxCh1EnableTimer.Text = "Ch. 1 Enable Auto Return Timer";
+            this.checkBoxCh1EnableTimer.UseVisualStyleBackColor = true;
+            this.checkBoxCh1EnableTimer.CheckedChanged += new System.EventHandler(this.checkBoxChEnableTimer_CheckedChanged);
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox9.Enabled = false;
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(29, 50);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(84, 22);
+            this.textBox9.TabIndex = 32;
+            this.textBox9.Text = "Return after";
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox13.Enabled = false;
+            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Location = new System.Drawing.Point(170, 50);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(91, 22);
+            this.textBox13.TabIndex = 33;
+            this.textBox13.Text = "sec. at pos.";
+            // 
+            // TextBoxConfigStatus
+            // 
+            this.TextBoxConfigStatus.Location = new System.Drawing.Point(124, 462);
+            this.TextBoxConfigStatus.Name = "TextBoxConfigStatus";
+            this.TextBoxConfigStatus.Size = new System.Drawing.Size(191, 20);
+            this.TextBoxConfigStatus.TabIndex = 19;
+            // 
             // NumChanneslConfigured
             // 
             this.NumChanneslConfigured.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumChanneslConfigured.Location = new System.Drawing.Point(210, 31);
+            this.NumChanneslConfigured.Location = new System.Drawing.Point(210, 22);
             this.NumChanneslConfigured.Name = "NumChanneslConfigured";
-            this.NumChanneslConfigured.Size = new System.Drawing.Size(62, 26);
+            this.NumChanneslConfigured.Size = new System.Drawing.Size(82, 26);
             this.NumChanneslConfigured.TabIndex = 15;
             this.NumChanneslConfigured.ValueChanged += new System.EventHandler(this.NumChanneslConfigured_ValueChanged);
             // 
@@ -437,7 +830,7 @@
             this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox25.Enabled = false;
             this.textBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox25.Location = new System.Drawing.Point(17, 33);
+            this.textBox25.Location = new System.Drawing.Point(17, 24);
             this.textBox25.Multiline = true;
             this.textBox25.Name = "textBox25";
             this.textBox25.Size = new System.Drawing.Size(212, 22);
@@ -456,6 +849,18 @@
             this.textBox24.Size = new System.Drawing.Size(275, 22);
             this.textBox24.TabIndex = 14;
             this.textBox24.Text = "Configuration";
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox17.Enabled = false;
+            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Location = new System.Drawing.Point(4, 463);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(114, 19);
+            this.textBox17.TabIndex = 20;
+            this.textBox17.Text = "Config. Status";
             // 
             // panelCh1
             // 
@@ -1113,7 +1518,7 @@
             this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox23.Enabled = false;
             this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox23.Location = new System.Drawing.Point(298, 10);
+            this.textBox23.Location = new System.Drawing.Point(433, 10);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(445, 55);
             this.textBox23.TabIndex = 19;
@@ -1140,6 +1545,21 @@
             this.panelSystem.PerformLayout();
             this.panelConfig.ResumeLayout(false);
             this.panelConfig.PerformLayout();
+            this.panelCh5Config.ResumeLayout(false);
+            this.panelCh5Config.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh5TimerPreset)).EndInit();
+            this.panelCh4Config.ResumeLayout(false);
+            this.panelCh4Config.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh4TimerPreset)).EndInit();
+            this.panelCh3Config.ResumeLayout(false);
+            this.panelCh3Config.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh3TimerPreset)).EndInit();
+            this.panelCh2Config.ResumeLayout(false);
+            this.panelCh2Config.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh2TimerPreset)).EndInit();
+            this.panelCh1Config.ResumeLayout(false);
+            this.panelCh1Config.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCh1TimerPreset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumChanneslConfigured)).EndInit();
             this.panelCh1.ResumeLayout(false);
             this.panelCh1.PerformLayout();
@@ -1258,6 +1678,36 @@
         private RoundButton M4FdbkIN;
         private RoundButton M5FdbkOUT;
         private RoundButton M5FdbkIN;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.ComboBox comboBoxCh1ReturnPositionTrigger;
+        private System.Windows.Forms.NumericUpDown numericUpDownCh1TimerPreset;
+        private System.Windows.Forms.CheckBox checkBoxCh1EnableTimer;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Panel panelCh5Config;
+        private System.Windows.Forms.ComboBox comboBoxCh5ReturnPositionTrigger;
+        private System.Windows.Forms.NumericUpDown numericUpDownCh5TimerPreset;
+        private System.Windows.Forms.TextBox textBox32;
+        private System.Windows.Forms.CheckBox checkBoxCh5EnableTimer;
+        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.Panel panelCh4Config;
+        private System.Windows.Forms.ComboBox comboBoxCh4ReturnPositionTrigger;
+        private System.Windows.Forms.NumericUpDown numericUpDownCh4TimerPreset;
+        private System.Windows.Forms.CheckBox checkBoxCh4EnableTimer;
+        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.Panel panelCh3Config;
+        private System.Windows.Forms.ComboBox comboBoxCh3ReturnPositionTrigger;
+        private System.Windows.Forms.NumericUpDown numericUpDownCh3TimerPreset;
+        private System.Windows.Forms.CheckBox checkBoxCh3EnableTimer;
+        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.Panel panelCh2Config;
+        private System.Windows.Forms.ComboBox comboBoxCh2ReturnPositionTrigger;
+        private System.Windows.Forms.NumericUpDown numericUpDownCh2TimerPreset;
+        private System.Windows.Forms.CheckBox checkBoxCh2EnableTimer;
+        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Panel panelCh1Config;
     }
 }
 

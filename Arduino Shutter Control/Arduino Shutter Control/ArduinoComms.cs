@@ -47,7 +47,7 @@ namespace Arduino_Shutter_Control
             var secondNow = DateTime.UtcNow.Second;
             var minuteNow = DateTime.UtcNow.Minute;
             var timespan = 0;
-            while ((timespan) < 10)
+            while ((timespan) < 5)
             {
                 if (DateTime.UtcNow.Minute > minuteNow)
                 {
@@ -64,6 +64,7 @@ namespace Arduino_Shutter_Control
                     return true;
                 }
             }
+            port.Close();
             Connected = false;
             return false;
 
@@ -81,8 +82,11 @@ namespace Arduino_Shutter_Control
             {
                 return false;
             }
-            Connected = false;
-            OnArduinoDisconnected(EventArgs.Empty); //raise event when disconnection is successful
+            finally
+            {
+                Connected = false;
+                OnArduinoDisconnected(EventArgs.Empty); //raise event when disconnection is successful
+            }
             return true;
         }
 
