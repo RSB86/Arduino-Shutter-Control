@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.listViewSerialPorts = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxConnectionStatus = new System.Windows.Forms.TextBox();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.buttonM1CmdIN = new System.Windows.Forms.Button();
@@ -86,8 +86,6 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.panelCh1 = new System.Windows.Forms.Panel();
             this.panelCh1Fdbk = new System.Windows.Forms.Panel();
-            this.M1FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M1FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.panelCh1Cmd = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -95,8 +93,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.panelCh2 = new System.Windows.Forms.Panel();
             this.panelCh2Fdbk = new System.Windows.Forms.Panel();
-            this.M2FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M2FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.panelCh2Cmd = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -106,8 +102,6 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.panelCh3 = new System.Windows.Forms.Panel();
             this.panelCh3Fdbk = new System.Windows.Forms.Panel();
-            this.M3FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M3FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.panelCh3Cmd = new System.Windows.Forms.Panel();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -117,8 +111,6 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.panelCh4 = new System.Windows.Forms.Panel();
             this.panelCh4Fdbk = new System.Windows.Forms.Panel();
-            this.M4FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M4FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.panelCh4Cmd = new System.Windows.Forms.Panel();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -128,8 +120,6 @@
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.panelCh5 = new System.Windows.Forms.Panel();
             this.panelCh5Fdbk = new System.Windows.Forms.Panel();
-            this.M5FdbkOUT = new Arduino_Shutter_Control.RoundButton();
-            this.M5FdbkIN = new Arduino_Shutter_Control.RoundButton();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.panelCh5Cmd = new System.Windows.Forms.Panel();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -138,6 +128,18 @@
             this.M5Name = new System.Windows.Forms.TextBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
+            this.TextBoxDeviceConnectedStatus = new System.Windows.Forms.TextBox();
+            this.M5FdbkOUT = new Arduino_Shutter_Control.RoundButton();
+            this.M5FdbkIN = new Arduino_Shutter_Control.RoundButton();
+            this.M4FdbkOUT = new Arduino_Shutter_Control.RoundButton();
+            this.M4FdbkIN = new Arduino_Shutter_Control.RoundButton();
+            this.M3FdbkOUT = new Arduino_Shutter_Control.RoundButton();
+            this.M3FdbkIN = new Arduino_Shutter_Control.RoundButton();
+            this.M2FdbkOUT = new Arduino_Shutter_Control.RoundButton();
+            this.M2FdbkIN = new Arduino_Shutter_Control.RoundButton();
+            this.M1FdbkOUT = new Arduino_Shutter_Control.RoundButton();
+            this.M1FdbkIN = new Arduino_Shutter_Control.RoundButton();
+            this.textBoxVersionNumber = new System.Windows.Forms.TextBox();
             this.panelSystem.SuspendLayout();
             this.panelConfig.SuspendLayout();
             this.panelCh5Config.SuspendLayout();
@@ -179,14 +181,14 @@
             this.listViewSerialPorts.UseCompatibleStateImageBehavior = false;
             this.listViewSerialPorts.SelectedIndexChanged += new System.EventHandler(this.ListViewSerialPorts_SelectedIndexChanged);
             // 
-            // textBox1
+            // textBoxConnectionStatus
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(10, 187);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(324, 22);
-            this.textBox1.TabIndex = 2;
+            this.textBoxConnectionStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConnectionStatus.Location = new System.Drawing.Point(10, 187);
+            this.textBoxConnectionStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxConnectionStatus.Name = "textBoxConnectionStatus";
+            this.textBoxConnectionStatus.Size = new System.Drawing.Size(324, 22);
+            this.textBoxConnectionStatus.TabIndex = 2;
             // 
             // buttonRefresh
             // 
@@ -257,7 +259,6 @@
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Control;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(10, 10);
             this.textBox2.Name = "textBox2";
@@ -270,7 +271,6 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Control;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(12, 163);
             this.textBox3.Name = "textBox3";
@@ -286,7 +286,7 @@
             this.panelSystem.Controls.Add(this.textBox2);
             this.panelSystem.Controls.Add(this.textBox3);
             this.panelSystem.Controls.Add(this.listViewSerialPorts);
-            this.panelSystem.Controls.Add(this.textBox1);
+            this.panelSystem.Controls.Add(this.textBoxConnectionStatus);
             this.panelSystem.Controls.Add(this.buttonRefresh);
             this.panelSystem.Controls.Add(this.buttonConnect);
             this.panelSystem.Controls.Add(this.buttonDisconnect);
@@ -332,7 +332,6 @@
             // 
             this.textBoxCh5FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxCh5FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCh5FwdPosIs.Enabled = false;
             this.textBoxCh5FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCh5FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh5FwdPosIs.Multiline = true;
@@ -378,7 +377,6 @@
             // 
             this.textBox32.BackColor = System.Drawing.SystemColors.Control;
             this.textBox32.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox32.Enabled = false;
             this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox32.Location = new System.Drawing.Point(170, 50);
             this.textBox32.Multiline = true;
@@ -403,7 +401,6 @@
             // 
             this.textBox31.BackColor = System.Drawing.SystemColors.Control;
             this.textBox31.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox31.Enabled = false;
             this.textBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox31.Location = new System.Drawing.Point(29, 50);
             this.textBox31.Multiline = true;
@@ -452,7 +449,6 @@
             // 
             this.textBoxCh4FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxCh4FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCh4FwdPosIs.Enabled = false;
             this.textBoxCh4FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCh4FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh4FwdPosIs.Multiline = true;
@@ -489,7 +485,6 @@
             // 
             this.textBox30.BackColor = System.Drawing.SystemColors.Control;
             this.textBox30.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox30.Enabled = false;
             this.textBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox30.Location = new System.Drawing.Point(29, 50);
             this.textBox30.Multiline = true;
@@ -502,7 +497,6 @@
             // 
             this.textBox29.BackColor = System.Drawing.SystemColors.Control;
             this.textBox29.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox29.Enabled = false;
             this.textBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox29.Location = new System.Drawing.Point(170, 50);
             this.textBox29.Multiline = true;
@@ -551,7 +545,6 @@
             // 
             this.textBoxCh3FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxCh3FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCh3FwdPosIs.Enabled = false;
             this.textBoxCh3FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCh3FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh3FwdPosIs.Multiline = true;
@@ -588,7 +581,6 @@
             // 
             this.textBox28.BackColor = System.Drawing.SystemColors.Control;
             this.textBox28.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox28.Enabled = false;
             this.textBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox28.Location = new System.Drawing.Point(29, 50);
             this.textBox28.Multiline = true;
@@ -601,7 +593,6 @@
             // 
             this.textBox27.BackColor = System.Drawing.SystemColors.Control;
             this.textBox27.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox27.Enabled = false;
             this.textBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox27.Location = new System.Drawing.Point(170, 50);
             this.textBox27.Multiline = true;
@@ -650,7 +641,6 @@
             // 
             this.textBoxCh2FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxCh2FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCh2FwdPosIs.Enabled = false;
             this.textBoxCh2FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCh2FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh2FwdPosIs.Multiline = true;
@@ -687,7 +677,6 @@
             // 
             this.textBox26.BackColor = System.Drawing.SystemColors.Control;
             this.textBox26.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox26.Enabled = false;
             this.textBox26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox26.Location = new System.Drawing.Point(29, 50);
             this.textBox26.Multiline = true;
@@ -700,7 +689,6 @@
             // 
             this.textBox21.BackColor = System.Drawing.SystemColors.Control;
             this.textBox21.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox21.Enabled = false;
             this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox21.Location = new System.Drawing.Point(170, 50);
             this.textBox21.Multiline = true;
@@ -749,8 +737,8 @@
             // 
             this.textBoxCh1FwdPosIs.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxCh1FwdPosIs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxCh1FwdPosIs.Enabled = false;
             this.textBoxCh1FwdPosIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCh1FwdPosIs.ForeColor = System.Drawing.Color.Black;
             this.textBoxCh1FwdPosIs.Location = new System.Drawing.Point(20, 3);
             this.textBoxCh1FwdPosIs.Multiline = true;
             this.textBoxCh1FwdPosIs.Name = "textBoxCh1FwdPosIs";
@@ -786,7 +774,6 @@
             // 
             this.textBox9.BackColor = System.Drawing.SystemColors.Control;
             this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Enabled = false;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox9.Location = new System.Drawing.Point(29, 50);
             this.textBox9.Multiline = true;
@@ -799,7 +786,6 @@
             // 
             this.textBox13.BackColor = System.Drawing.SystemColors.Control;
             this.textBox13.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox13.Enabled = false;
             this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.Location = new System.Drawing.Point(170, 50);
             this.textBox13.Multiline = true;
@@ -828,7 +814,6 @@
             // 
             this.textBox25.BackColor = System.Drawing.SystemColors.Control;
             this.textBox25.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox25.Enabled = false;
             this.textBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox25.Location = new System.Drawing.Point(17, 24);
             this.textBox25.Multiline = true;
@@ -841,7 +826,6 @@
             // 
             this.textBox24.BackColor = System.Drawing.SystemColors.Control;
             this.textBox24.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox24.Enabled = false;
             this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox24.Location = new System.Drawing.Point(4, 3);
             this.textBox24.Multiline = true;
@@ -854,7 +838,6 @@
             // 
             this.textBox17.BackColor = System.Drawing.SystemColors.Control;
             this.textBox17.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox17.Enabled = false;
             this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox17.Location = new System.Drawing.Point(4, 463);
             this.textBox17.Name = "textBox17";
@@ -886,35 +869,10 @@
             this.panelCh1Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh1Fdbk.TabIndex = 16;
             // 
-            // M1FdbkOUT
-            // 
-            this.M1FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M1FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M1FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M1FdbkOUT.Location = new System.Drawing.Point(180, 6);
-            this.M1FdbkOUT.Name = "M1FdbkOUT";
-            this.M1FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M1FdbkOUT.TabIndex = 19;
-            this.M1FdbkOUT.Text = "OUT";
-            this.M1FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M1FdbkIN
-            // 
-            this.M1FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M1FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M1FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M1FdbkIN.Location = new System.Drawing.Point(30, 6);
-            this.M1FdbkIN.Name = "M1FdbkIN";
-            this.M1FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M1FdbkIN.TabIndex = 18;
-            this.M1FdbkIN.Text = "IN";
-            this.M1FdbkIN.UseVisualStyleBackColor = false;
-            // 
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.SystemColors.Control;
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Enabled = false;
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.Black;
             this.textBox8.Location = new System.Drawing.Point(100, 3);
@@ -938,7 +896,6 @@
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.Control;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Enabled = false;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.Color.Black;
             this.textBox7.Location = new System.Drawing.Point(100, 3);
@@ -962,7 +919,6 @@
             // 
             this.textBox5.BackColor = System.Drawing.SystemColors.Control;
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.Black;
             this.textBox5.Location = new System.Drawing.Point(3, 11);
@@ -995,35 +951,10 @@
             this.panelCh2Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh2Fdbk.TabIndex = 16;
             // 
-            // M2FdbkOUT
-            // 
-            this.M2FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M2FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M2FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M2FdbkOUT.Location = new System.Drawing.Point(180, 6);
-            this.M2FdbkOUT.Name = "M2FdbkOUT";
-            this.M2FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M2FdbkOUT.TabIndex = 21;
-            this.M2FdbkOUT.Text = "OUT";
-            this.M2FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M2FdbkIN
-            // 
-            this.M2FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M2FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M2FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M2FdbkIN.Location = new System.Drawing.Point(30, 6);
-            this.M2FdbkIN.Name = "M2FdbkIN";
-            this.M2FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M2FdbkIN.TabIndex = 20;
-            this.M2FdbkIN.Text = "IN";
-            this.M2FdbkIN.UseVisualStyleBackColor = false;
-            // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.Control;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Enabled = false;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.Black;
             this.textBox4.Location = new System.Drawing.Point(100, 3);
@@ -1047,7 +978,6 @@
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.Control;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Enabled = false;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.Color.Black;
             this.textBox6.Location = new System.Drawing.Point(100, 3);
@@ -1097,7 +1027,6 @@
             // 
             this.textBox10.BackColor = System.Drawing.SystemColors.Control;
             this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Enabled = false;
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.ForeColor = System.Drawing.Color.Black;
             this.textBox10.Location = new System.Drawing.Point(3, 11);
@@ -1130,35 +1059,10 @@
             this.panelCh3Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh3Fdbk.TabIndex = 16;
             // 
-            // M3FdbkOUT
-            // 
-            this.M3FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M3FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M3FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M3FdbkOUT.Location = new System.Drawing.Point(180, 6);
-            this.M3FdbkOUT.Name = "M3FdbkOUT";
-            this.M3FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M3FdbkOUT.TabIndex = 21;
-            this.M3FdbkOUT.Text = "OUT";
-            this.M3FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M3FdbkIN
-            // 
-            this.M3FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M3FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M3FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M3FdbkIN.Location = new System.Drawing.Point(30, 6);
-            this.M3FdbkIN.Name = "M3FdbkIN";
-            this.M3FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M3FdbkIN.TabIndex = 20;
-            this.M3FdbkIN.Text = "IN";
-            this.M3FdbkIN.UseVisualStyleBackColor = false;
-            // 
             // textBox11
             // 
             this.textBox11.BackColor = System.Drawing.SystemColors.Control;
             this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox11.Enabled = false;
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox11.ForeColor = System.Drawing.Color.Black;
             this.textBox11.Location = new System.Drawing.Point(100, 3);
@@ -1182,7 +1086,6 @@
             // 
             this.textBox12.BackColor = System.Drawing.SystemColors.Control;
             this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox12.Enabled = false;
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox12.ForeColor = System.Drawing.Color.Black;
             this.textBox12.Location = new System.Drawing.Point(100, 3);
@@ -1232,7 +1135,6 @@
             // 
             this.textBox14.BackColor = System.Drawing.SystemColors.Control;
             this.textBox14.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox14.Enabled = false;
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox14.ForeColor = System.Drawing.Color.Black;
             this.textBox14.Location = new System.Drawing.Point(3, 11);
@@ -1265,35 +1167,10 @@
             this.panelCh4Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh4Fdbk.TabIndex = 16;
             // 
-            // M4FdbkOUT
-            // 
-            this.M4FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M4FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M4FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M4FdbkOUT.Location = new System.Drawing.Point(180, 6);
-            this.M4FdbkOUT.Name = "M4FdbkOUT";
-            this.M4FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M4FdbkOUT.TabIndex = 21;
-            this.M4FdbkOUT.Text = "OUT";
-            this.M4FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M4FdbkIN
-            // 
-            this.M4FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M4FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M4FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M4FdbkIN.Location = new System.Drawing.Point(30, 6);
-            this.M4FdbkIN.Name = "M4FdbkIN";
-            this.M4FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M4FdbkIN.TabIndex = 20;
-            this.M4FdbkIN.Text = "IN";
-            this.M4FdbkIN.UseVisualStyleBackColor = false;
-            // 
             // textBox15
             // 
             this.textBox15.BackColor = System.Drawing.SystemColors.Control;
             this.textBox15.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox15.Enabled = false;
             this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.ForeColor = System.Drawing.Color.Black;
             this.textBox15.Location = new System.Drawing.Point(100, 3);
@@ -1317,7 +1194,6 @@
             // 
             this.textBox16.BackColor = System.Drawing.SystemColors.Control;
             this.textBox16.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox16.Enabled = false;
             this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox16.ForeColor = System.Drawing.Color.Black;
             this.textBox16.Location = new System.Drawing.Point(100, 3);
@@ -1367,7 +1243,6 @@
             // 
             this.textBox18.BackColor = System.Drawing.SystemColors.Control;
             this.textBox18.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox18.Enabled = false;
             this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox18.ForeColor = System.Drawing.Color.Black;
             this.textBox18.Location = new System.Drawing.Point(3, 11);
@@ -1400,35 +1275,10 @@
             this.panelCh5Fdbk.Size = new System.Drawing.Size(280, 80);
             this.panelCh5Fdbk.TabIndex = 16;
             // 
-            // M5FdbkOUT
-            // 
-            this.M5FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M5FdbkOUT.BackColor = System.Drawing.Color.Silver;
-            this.M5FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M5FdbkOUT.Location = new System.Drawing.Point(180, 6);
-            this.M5FdbkOUT.Name = "M5FdbkOUT";
-            this.M5FdbkOUT.Size = new System.Drawing.Size(70, 70);
-            this.M5FdbkOUT.TabIndex = 21;
-            this.M5FdbkOUT.Text = "OUT";
-            this.M5FdbkOUT.UseVisualStyleBackColor = false;
-            // 
-            // M5FdbkIN
-            // 
-            this.M5FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.M5FdbkIN.BackColor = System.Drawing.Color.Silver;
-            this.M5FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.M5FdbkIN.Location = new System.Drawing.Point(30, 6);
-            this.M5FdbkIN.Name = "M5FdbkIN";
-            this.M5FdbkIN.Size = new System.Drawing.Size(70, 70);
-            this.M5FdbkIN.TabIndex = 20;
-            this.M5FdbkIN.Text = "IN";
-            this.M5FdbkIN.UseVisualStyleBackColor = false;
-            // 
             // textBox19
             // 
             this.textBox19.BackColor = System.Drawing.SystemColors.Control;
             this.textBox19.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox19.Enabled = false;
             this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox19.ForeColor = System.Drawing.Color.Black;
             this.textBox19.Location = new System.Drawing.Point(100, 3);
@@ -1452,7 +1302,6 @@
             // 
             this.textBox20.BackColor = System.Drawing.SystemColors.Control;
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox20.Enabled = false;
             this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox20.ForeColor = System.Drawing.Color.Black;
             this.textBox20.Location = new System.Drawing.Point(100, 3);
@@ -1502,7 +1351,6 @@
             // 
             this.textBox22.BackColor = System.Drawing.SystemColors.Control;
             this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox22.Enabled = false;
             this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox22.ForeColor = System.Drawing.Color.Black;
             this.textBox22.Location = new System.Drawing.Point(3, 11);
@@ -1516,20 +1364,165 @@
             this.textBox23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox23.BackColor = System.Drawing.SystemColors.Control;
             this.textBox23.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox23.Enabled = false;
             this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox23.Location = new System.Drawing.Point(433, 10);
+            this.textBox23.Location = new System.Drawing.Point(364, 10);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(445, 55);
             this.textBox23.TabIndex = 19;
             this.textBox23.Text = "Shutter Control";
             this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // TextBoxDeviceConnectedStatus
+            // 
+            this.TextBoxDeviceConnectedStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TextBoxDeviceConnectedStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxDeviceConnectedStatus.Location = new System.Drawing.Point(801, 45);
+            this.TextBoxDeviceConnectedStatus.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxDeviceConnectedStatus.Name = "TextBoxDeviceConnectedStatus";
+            this.TextBoxDeviceConnectedStatus.Size = new System.Drawing.Size(183, 22);
+            this.TextBoxDeviceConnectedStatus.TabIndex = 14;
+            this.TextBoxDeviceConnectedStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // M5FdbkOUT
+            // 
+            this.M5FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M5FdbkOUT.BackColor = System.Drawing.Color.Silver;
+            this.M5FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M5FdbkOUT.Location = new System.Drawing.Point(180, 6);
+            this.M5FdbkOUT.Name = "M5FdbkOUT";
+            this.M5FdbkOUT.Size = new System.Drawing.Size(70, 70);
+            this.M5FdbkOUT.TabIndex = 21;
+            this.M5FdbkOUT.Text = "OUT";
+            this.M5FdbkOUT.UseVisualStyleBackColor = false;
+            // 
+            // M5FdbkIN
+            // 
+            this.M5FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M5FdbkIN.BackColor = System.Drawing.Color.Silver;
+            this.M5FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M5FdbkIN.Location = new System.Drawing.Point(30, 6);
+            this.M5FdbkIN.Name = "M5FdbkIN";
+            this.M5FdbkIN.Size = new System.Drawing.Size(70, 70);
+            this.M5FdbkIN.TabIndex = 20;
+            this.M5FdbkIN.Text = "IN";
+            this.M5FdbkIN.UseVisualStyleBackColor = false;
+            // 
+            // M4FdbkOUT
+            // 
+            this.M4FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M4FdbkOUT.BackColor = System.Drawing.Color.Silver;
+            this.M4FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M4FdbkOUT.Location = new System.Drawing.Point(180, 6);
+            this.M4FdbkOUT.Name = "M4FdbkOUT";
+            this.M4FdbkOUT.Size = new System.Drawing.Size(70, 70);
+            this.M4FdbkOUT.TabIndex = 21;
+            this.M4FdbkOUT.Text = "OUT";
+            this.M4FdbkOUT.UseVisualStyleBackColor = false;
+            // 
+            // M4FdbkIN
+            // 
+            this.M4FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M4FdbkIN.BackColor = System.Drawing.Color.Silver;
+            this.M4FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M4FdbkIN.Location = new System.Drawing.Point(30, 6);
+            this.M4FdbkIN.Name = "M4FdbkIN";
+            this.M4FdbkIN.Size = new System.Drawing.Size(70, 70);
+            this.M4FdbkIN.TabIndex = 20;
+            this.M4FdbkIN.Text = "IN";
+            this.M4FdbkIN.UseVisualStyleBackColor = false;
+            // 
+            // M3FdbkOUT
+            // 
+            this.M3FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M3FdbkOUT.BackColor = System.Drawing.Color.Silver;
+            this.M3FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M3FdbkOUT.Location = new System.Drawing.Point(180, 6);
+            this.M3FdbkOUT.Name = "M3FdbkOUT";
+            this.M3FdbkOUT.Size = new System.Drawing.Size(70, 70);
+            this.M3FdbkOUT.TabIndex = 21;
+            this.M3FdbkOUT.Text = "OUT";
+            this.M3FdbkOUT.UseVisualStyleBackColor = false;
+            // 
+            // M3FdbkIN
+            // 
+            this.M3FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M3FdbkIN.BackColor = System.Drawing.Color.Silver;
+            this.M3FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M3FdbkIN.Location = new System.Drawing.Point(30, 6);
+            this.M3FdbkIN.Name = "M3FdbkIN";
+            this.M3FdbkIN.Size = new System.Drawing.Size(70, 70);
+            this.M3FdbkIN.TabIndex = 20;
+            this.M3FdbkIN.Text = "IN";
+            this.M3FdbkIN.UseVisualStyleBackColor = false;
+            // 
+            // M2FdbkOUT
+            // 
+            this.M2FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M2FdbkOUT.BackColor = System.Drawing.Color.Silver;
+            this.M2FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M2FdbkOUT.Location = new System.Drawing.Point(180, 6);
+            this.M2FdbkOUT.Name = "M2FdbkOUT";
+            this.M2FdbkOUT.Size = new System.Drawing.Size(70, 70);
+            this.M2FdbkOUT.TabIndex = 21;
+            this.M2FdbkOUT.Text = "OUT";
+            this.M2FdbkOUT.UseVisualStyleBackColor = false;
+            // 
+            // M2FdbkIN
+            // 
+            this.M2FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M2FdbkIN.BackColor = System.Drawing.Color.Silver;
+            this.M2FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M2FdbkIN.Location = new System.Drawing.Point(30, 6);
+            this.M2FdbkIN.Name = "M2FdbkIN";
+            this.M2FdbkIN.Size = new System.Drawing.Size(70, 70);
+            this.M2FdbkIN.TabIndex = 20;
+            this.M2FdbkIN.Text = "IN";
+            this.M2FdbkIN.UseVisualStyleBackColor = false;
+            // 
+            // M1FdbkOUT
+            // 
+            this.M1FdbkOUT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M1FdbkOUT.BackColor = System.Drawing.Color.Silver;
+            this.M1FdbkOUT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M1FdbkOUT.Location = new System.Drawing.Point(180, 6);
+            this.M1FdbkOUT.Name = "M1FdbkOUT";
+            this.M1FdbkOUT.Size = new System.Drawing.Size(70, 70);
+            this.M1FdbkOUT.TabIndex = 19;
+            this.M1FdbkOUT.Text = "OUT";
+            this.M1FdbkOUT.UseVisualStyleBackColor = false;
+            // 
+            // M1FdbkIN
+            // 
+            this.M1FdbkIN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.M1FdbkIN.BackColor = System.Drawing.Color.Silver;
+            this.M1FdbkIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.M1FdbkIN.Location = new System.Drawing.Point(30, 6);
+            this.M1FdbkIN.Name = "M1FdbkIN";
+            this.M1FdbkIN.Size = new System.Drawing.Size(70, 70);
+            this.M1FdbkIN.TabIndex = 18;
+            this.M1FdbkIN.Text = "IN";
+            this.M1FdbkIN.UseVisualStyleBackColor = false;
+            // 
+            // textBoxVersionNumber
+            // 
+            this.textBoxVersionNumber.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxVersionNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxVersionNumber.Enabled = false;
+            this.textBoxVersionNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxVersionNumber.Location = new System.Drawing.Point(13, 715);
+            this.textBoxVersionNumber.Multiline = true;
+            this.textBoxVersionNumber.Name = "textBoxVersionNumber";
+            this.textBoxVersionNumber.Size = new System.Drawing.Size(212, 22);
+            this.textBoxVersionNumber.TabIndex = 59;
+            this.textBoxVersionNumber.Text = "Version X.X";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.textBoxVersionNumber);
+            this.Controls.Add(this.TextBoxDeviceConnectedStatus);
             this.Controls.Add(this.textBox23);
             this.Controls.Add(this.panelCh5);
             this.Controls.Add(this.panelCh4);
@@ -1540,7 +1533,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSystem.ResumeLayout(false);
             this.panelSystem.PerformLayout();
             this.panelConfig.ResumeLayout(false);
@@ -1599,7 +1591,7 @@
         #endregion
 
         private System.Windows.Forms.ListView listViewSerialPorts;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxConnectionStatus;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.Button buttonM1CmdIN;
@@ -1708,6 +1700,8 @@
         private System.Windows.Forms.TextBox textBox26;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.Panel panelCh1Config;
+        private System.Windows.Forms.TextBox TextBoxDeviceConnectedStatus;
+        private System.Windows.Forms.TextBox textBoxVersionNumber;
     }
 }
 

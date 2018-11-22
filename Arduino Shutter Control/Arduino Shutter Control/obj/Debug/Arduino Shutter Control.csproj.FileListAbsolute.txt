@@ -8,16 +8,15 @@ C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Ard
 C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.pdb
 C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.exe
 C:\Users\Rafa\Documents\Github\ArduinoShutterControl\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.pdb
-C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.exe.config
-C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.exe
-C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Arduino Shutter Control.pdb
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino_Shutter_Control.Form1.resources
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino_Shutter_Control.Properties.Resources.resources
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csproj.GenerateResource.cache
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csproj.CoreCompileInputs.cache
-C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.exe
-C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.pdb
-C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csprojAssemblyReference.cache
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Newtonsoft.Json.dll
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Newtonsoft.Json.xml
 C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Arduino Shutter Control.csproj.CopyComplete
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Shutter Control.exe.config
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Shutter Control.exe
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\bin\Debug\Shutter Control.pdb
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Shutter Control.exe
+C:\Users\VHP25866\Documents\Git\Arduino Shutter Control\Arduino Shutter Control\Arduino Shutter Control\obj\Debug\Shutter Control.pdb

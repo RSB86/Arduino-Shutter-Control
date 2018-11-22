@@ -14,13 +14,6 @@ using Newtonsoft.Json;
 
 namespace Arduino_Shutter_Control
 {
-    public struct MotorData
-    {
-        public string MotorName;
-        public int MotorNumber;
-        public bool FwdLimit, RevLimit, FwdCommand, RevCommand, InPosition, OutPosition;
-    }
-
     public partial class Form1 : Form
     {
         //Class Variables
@@ -30,6 +23,7 @@ namespace Arduino_Shutter_Control
         private ArduinoComms ArduinoControl = new ArduinoComms();
         private System.Windows.Forms.Timer readDataTimer = new System.Windows.Forms.Timer();
         private System.Windows.Forms.Timer[] ChannelReturnTimer;
+        private System.Windows.Forms.Timer SendRunCmdTimer = new System.Windows.Forms.Timer();
         public bool SerialMsgJustSent;
         public int MaxChannelsAvaialble = 5;
         private string ConfigFilePath = @"C:\Users\Public\Documents\ElectricalControls\ShutterControl";
@@ -38,7 +32,10 @@ namespace Arduino_Shutter_Control
         //Form
         public Form1()
         {
+
             InitializeComponent();
+
+            textBoxVersionNumber.Text = "Version 1.0";
 
             CreateDirectory(ConfigFilePath);
 
@@ -63,7 +60,11 @@ namespace Arduino_Shutter_Control
             ArduinoControl.ArduinoConnected += ArduinoControl_ArduinoConnected; //Event when connected to Arduino
             ArduinoControl.ArduinoDisconnected += ArduinoControl_ArduinoDisconnected; //Event when disconnected from Arduino
 
-            textBox1.Text = "Please select a device from the list to connect";
+            textBoxConnectionStatus.Text = "Please select a device from the list to connect";
+
+            TextBoxDeviceConnectedStatus.Text = "No Device Connected";
+            TextBoxDeviceConnectedStatus.ForeColor = Color.White;
+            TextBoxDeviceConnectedStatus.BackColor = Color.Red;
 
             //disable connect and disconnect button when program starts 
             buttonConnect.Enabled = false;
@@ -158,7 +159,7 @@ namespace Arduino_Shutter_Control
                     panelCh5Config.Visible = true;
                     break;
                 default:
-                    panelCh1.Visible = true;
+                    panelCh1.Visible = false;
                     panelCh1Config.Visible = false;
                     panelCh2.Visible = false;
                     panelCh2Config.Visible = false;
@@ -215,17 +216,31 @@ namespace Arduino_Shutter_Control
         //Connect To Arduino
         private void buttonConnect_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "Connecting...";
-            commPort = listViewSerialPorts.SelectedItems[0].SubItems[0].Text;
-            ArduinoControl.CommPort = commPort;
-            if (ArduinoControl.Connect())
+            try
             {
-                textBox1.Text = "Connection Successful";
-                readDataTimer.Start();
+                textBoxConnectionStatus.Text = "Connecting...";
+                commPort = listViewSerialPorts.SelectedItems[0].SubItems[0].Text;
+                ArduinoControl.CommPort = commPort;
+                if (ArduinoControl.Connect())
+                {
+                    textBoxConnectionStatus.Text = "Connection Successful";
+                    TextBoxDeviceConnectedStatus.Text = "Device Connected";
+                    TextBoxDeviceConnectedStatus.ForeColor = Color.White;
+                    TextBoxDeviceConnectedStatus.BackColor = Color.Green;
+                    readDataTimer.Start();
+                }
+                else
+                {
+                    textBoxConnectionStatus.Text = "Failed to connect";
+                    TextBoxDeviceConnectedStatus.Text = "No Device Connected";
+                    TextBoxDeviceConnectedStatus.ForeColor = Color.White;
+                    TextBoxDeviceConnectedStatus.BackColor = Color.Red;
+                    readDataTimer.Stop();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                textBox1.Text = "Failed to connect";
+                textBoxConnectionStatus.Text = "No device selected";
                 readDataTimer.Stop();
             }
         }
@@ -235,12 +250,15 @@ namespace Arduino_Shutter_Control
         {
             if (ArduinoControl.Disconnect())
             {
-                textBox1.Text = "Connection closed successfully";
+                textBoxConnectionStatus.Text = "Connection closed successfully";
             }
             else
             {
-                textBox1.Text = "Failed to close connection";
+                textBoxConnectionStatus.Text = "Failed to close connection";
             }
+            TextBoxDeviceConnectedStatus.Text = "No Device Connected";
+            TextBoxDeviceConnectedStatus.ForeColor = Color.White;
+            TextBoxDeviceConnectedStatus.BackColor = Color.Red;
             readDataTimer.Stop();
         }
         
@@ -248,7 +266,7 @@ namespace Arduino_Shutter_Control
         //Timer Event
         void SetTimers()
         {
-            readDataTimer.Interval = 200; 
+            readDataTimer.Interval = 100; 
             readDataTimer.Tick += OnTimerTick;
             readDataTimer.Enabled = true;
             
@@ -270,6 +288,10 @@ namespace Arduino_Shutter_Control
                 }
                 ChannelReturnTimer[i].Stop();
             }
+
+            //Send command timer
+            SendRunCmdTimer.Interval = 100;
+            SendRunCmdTimer.Tick += OnSendRunCmdTimerTick;
         }
 
         void OnTimerTick(object source, EventArgs e)
@@ -282,25 +304,43 @@ namespace Arduino_Shutter_Control
                 //Update object visibility
                 UpdateScreenAnimation();
             }
-            ArduinoControl.SendingMsg = false;
         }
 
         void OnReturnTimerTick (object source, EventArgs e)
         {
+            ArduinoControl.SendingMsg = true;
             var timer = (System.Windows.Forms.Timer)source;
+            bool direction;
 
-            if (!SystemConfig.TimerTriggerPosition[Convert.ToInt16(timer.Tag)])
-            {
-                ArduinoControl.RunMotor(Convert.ToInt16(timer.Tag), true, SerialMsgJustSent);
-            }
-            else
-            {
-                ArduinoControl.RunMotor(Convert.ToInt16(timer.Tag), false, SerialMsgJustSent);
-            }
-            ChannelReturnTimer[Convert.ToInt16(timer.Tag)].Stop();
+            
+                if (ArduinoControl.MotorFeedback[Convert.ToInt16(timer.Tag)].FwdLimit)
+                {
+                    direction = true;
+                }
+                else
+                {
+                    direction = false;
+                }
+
+                var MotorCommand = new MotorCommand();
+                MotorCommand.MotorNumber = Convert.ToInt32(timer.Tag);
+                MotorCommand.MotorDirection = direction;
+                SendRunCmdTimer.Tag = MotorCommand;
+                SendRunCmdTimer.Start();
+
+                ChannelReturnTimer[Convert.ToInt32(timer.Tag)].Stop();
+
 
         }
 
+        void OnSendRunCmdTimerTick(object source, EventArgs e)
+        {
+            var timer = (System.Windows.Forms.Timer)source;
+            var motorCmd = (MotorCommand)timer.Tag;
+
+            ArduinoControl.RunMotor(motorCmd.MotorNumber, motorCmd.MotorDirection);
+            SendRunCmdTimer.Stop();
+        }
 
         //Buttons Animation
         void UpdateScreenAnimation()
@@ -449,11 +489,15 @@ namespace Arduino_Shutter_Control
                     {
                         if ((SystemConfig.TimerTriggerPosition[i] && ArduinoControl.MotorFeedback[i].InPosition) || (!SystemConfig.TimerTriggerPosition[i] && ArduinoControl.MotorFeedback[i].OutPosition)) // Start timer condition
                         {
-                            if (!ChannelReturnTimer[i].Enabled) // Start the timer if it is not running
+                            if (!ChannelReturnTimer[i].Enabled && !SendRunCmdTimer.Enabled && !ArduinoControl.SendingMsg) // Start the timer if it is not running
                             {
                                 ChannelReturnTimer[i].Interval = (int)SystemConfig.TimerPreset[i]*1000;
                                 ChannelReturnTimer[i].Start();
                             }
+                        }
+                        else
+                        {
+                            ChannelReturnTimer[i].Stop();
                         }
                     }
                 }
@@ -598,9 +642,10 @@ namespace Arduino_Shutter_Control
             ArduinoControl.Disconnect();
         }
 
-        //Button Event Handler
+        //Buttons Event Handler
         private void buttonMCmdIN_Click(object sender, EventArgs e)
         {
+            ArduinoControl.SendingMsg = true;
             bool direction;
             var button = (Button)sender;
             var buttonName = button.Name;
@@ -613,11 +658,16 @@ namespace Arduino_Shutter_Control
             {
                 direction = true;
             }
-            SerialMsgJustSent = ArduinoControl.RunMotor(Convert.ToInt32(channelString), direction, SerialMsgJustSent);
+            var MotorCommand = new MotorCommand();
+            MotorCommand.MotorNumber = Convert.ToInt32(channelString);
+            MotorCommand.MotorDirection = direction;
+            SendRunCmdTimer.Tag = MotorCommand;
+            SendRunCmdTimer.Start();
         }
 
         private void buttonMCmdOUT_Click(object sender, EventArgs e)
         {
+            ArduinoControl.SendingMsg = true;
             bool direction;
             var button = (Button)sender;
             var buttonName = button.Name;
@@ -630,7 +680,12 @@ namespace Arduino_Shutter_Control
             {
                 direction = false;
             }
-            SerialMsgJustSent = ArduinoControl.RunMotor(Convert.ToInt32(channelString), direction, SerialMsgJustSent);
+
+            var MotorCommand = new MotorCommand();
+            MotorCommand.MotorNumber = Convert.ToInt32(channelString);
+            MotorCommand.MotorDirection = direction;
+            SendRunCmdTimer.Tag = MotorCommand;
+            SendRunCmdTimer.Start();
         }
 
         //Update Configuration Status Text Box

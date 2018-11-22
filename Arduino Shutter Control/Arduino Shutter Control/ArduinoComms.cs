@@ -108,33 +108,16 @@ namespace Arduino_Shutter_Control
         }
 
         //Msg to Arduino to run motor
-        public bool RunMotor(int MotorNumber, bool Direction, bool wait)  //Direction = false --> Fwd; Direction = true -->Rev
+        public bool RunMotor(int MotorNumber, bool Direction)  //Direction = false --> Fwd; Direction = true -->Rev
         {
-
-            if (wait) // wait 20 ms after another message has just been sent to prevent data loss
-            {
-                var milliSecondNow = DateTime.UtcNow.Millisecond;
-                var secondNow = DateTime.UtcNow.Second;
-                var timespan = 0;
-                while ((timespan) < 20)
-                {
-                    if (DateTime.UtcNow.Second > secondNow)
-                    {
-                        timespan = DateTime.UtcNow.Millisecond + 1000 - secondNow;
-                    }
-                    else
-                    {
-                        timespan = DateTime.UtcNow.Millisecond - milliSecondNow;
-                    }
-                }
-            }
-            SendingMsg = true;
             var msg = "M_" + MotorNumber.ToString() + "_" + Convert.ToInt16(Direction).ToString();
             if (port.IsOpen)
             {
                 try
                 {
                     port.Write(msg);
+                    SendingMsg = false;
+                    return true;
                 }
                 catch (Exception ex) { }
             }
