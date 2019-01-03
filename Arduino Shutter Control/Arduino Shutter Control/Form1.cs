@@ -271,8 +271,8 @@ namespace Arduino_Shutter_Control
             readDataTimer.Enabled = true;
             
             //Return Timers    
-            ChannelReturnTimer = new System.Windows.Forms.Timer[MaxChannelsAvaialble];
-            for (var i=0;i<MaxChannelsAvaialble;i++)
+            ChannelReturnTimer = new System.Windows.Forms.Timer[MaxChannelsAvaialble+1];
+            for (var i=0;i<=MaxChannelsAvaialble;i++)
             {
                 ChannelReturnTimer[i] = new System.Windows.Forms.Timer();
                 ChannelReturnTimer[i].Enabled = true;
